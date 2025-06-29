@@ -3,240 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>حاجب الإعلانات</title>
+  <title>موقع حجب الإعلانات</title>
   <style>
     :root {
-      --bg: #f5f1e6;
-      --text: #333;
-      --box: #fff;
-    }
-
-    body.dark {
-      --bg: #1e1e1e;
-      --text: #ddd;
-      --box: #2a2a2a;
+      --main-bg: #f5f5dc;
+      --text-color: #222;
+      --accent: #d2b48c;
+      --light-bg: #ffffff;
+      --dark-bg: #222;
+      --dark-text: #f5f5dc;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--main-bg);
       margin: 0;
-      padding: 20px;
-      transition: 0.3s;
+      padding: 0;
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
     }
 
     header {
-      background-color: #d9c9a3;
-      padding: 20px;
+      background-color: var(--accent);
+      color: white;
+      padding: 30px;
       text-align: center;
-      border-radius: 10px;
+      border-bottom: 5px solid #c0a060;
     }
 
-    h1 {
-      margin: 0;
+    section {
+      padding: 20px;
+      margin: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background-color: var(--light-bg);
     }
 
-    .content {
-      margin-top: 30px;
+    body.dark-mode section {
+      background-color: #333;
     }
 
-    .language-icon {
-      position: absolute;
-      top: 20px;
-      right: 60px;
-      cursor: pointer;
+    h2 {
+      color: #4b3b2a;
     }
 
-    .dark-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    .language-menu {
-      display: none;
-      position: absolute;
-      top: 50px;
-      right: 60px;
-      background-color: var(--box);
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 10px;
-    }
-
-    .language-menu button {
-      display: block;
-      width: 100%;
-      background: none;
+    button {
+      padding: 10px 20px;
+      background-color: #8b5e3c;
+      color: white;
+      font-size: 16px;
       border: none;
-      padding: 8px;
-      text-align: right;
+      border-radius: 10px;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
 
-    .section {
-      margin-top: 20px;
-      background: var(--box);
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-
-    .toggle {
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .details {
-      display: none;
-      margin-top: 10px;
-    }
-
-    pre {
-      background: #eee;
-      padding: 10px;
-      border-radius: 6px;
-      overflow-x: auto;
+    button:hover {
+      background-color: #a06b45;
     }
 
     footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #ccc;
-      font-size: 14px;
       text-align: center;
-      color: #666;
-    }
-
-    footer a {
+      padding: 10px;
+      background-color: #e0d2b4;
       color: #444;
-      text-decoration: none;
-      display: block;
-      margin: 5px 0;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* رسائل خاصة */
-    .message {
-      background-color: var(--box);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      margin-top: 30px;
-      text-align: center;
+    /* زر الرجوع للأعلى */
+    #scrollTop {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #8b5e3c;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
       display: none;
+      z-index: 1000;
     }
 
+    #scrollTop:hover {
+      background-color: #a06b45;
+    }
   </style>
 </head>
 <body>
 
-  <!-- زر تغيير الوضع -->
-  <div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
-
-  <!-- أيقونة اللغة -->
-  <img src="https://img.icons8.com/emoji/48/globe-showing-europe-africa-emoji.png"
-       alt="Lang" class="language-icon" onclick="toggleLanguageMenu()" />
-
-  <div class="language-menu" id="languageMenu">
-    <button onclick="setLanguage('ar')"><img src="https://img.icons8.com/color/48/algeria.png" width="20"> العربية</button>
-    <button onclick="setLanguage('fr')"><img src="https://img.icons8.com/color/48/france.png" width="20"> Français</button>
-    <button onclick="setLanguage('en')"><img src="https://img.icons8.com/color/48/usa.png" width="20"> English</button>
-  </div>
-
   <header>
-    <h1>🚫 مرحبا بك في موقع حجب الإعلانات</h1>
+    <h1>👋 مرحباً بك في موقع حجب الإعلانات</h1>
+    <p>تصفح بأمان وراحة بدون إعلانات مزعجة!</p>
   </header>
 
-  <div class="content">
-
-    <!-- الأسئلة -->
-    <div class="section"><div class="toggle" onclick="toggleDetails('q1')">📌 ما هو DNS؟</div>
-      <div class="details" id="q1">DNS يترجم أسماء المواقع إلى عناوين IP، ليسهّل الوصول إليها.</div>
-    </div>
-
-    <div class="section"><div class="toggle" onclick="toggleDetails('q2')">📌 ما هو سكريبت الحظر؟</div>
-      <div class="details" id="q2">سكريبت الحظر هو كود لإخفاء أو منع ظهور الإعلانات.</div>
-    </div>
-
-    <div class="section"><div class="toggle" onclick="toggleDetails('q3')">📌 لماذا نستخدمه؟</div>
-      <div class="details" id="q3">لأن الإعلانات مزعجة، وبطّئ التصفح، وتستهلك البيانات.</div>
-    </div>
-
-    <div class="section"><div class="toggle" onclick="toggleDetails('q4')">📌 كيف يمكنه حظر الإعلانات؟</div>
-      <div class="details" id="q4">يقوم بالتعرف على العناصر الإعلانية وإخفائها تلقائيًا.</div>
-    </div>
-
-    <div class="section"><div class="toggle" onclick="toggleDetails('q5')">📌 كيف نستخدمه وأين نضعه؟</div>
-      <div class="details" id="q5">نضعه داخل كود HTML أو كإضافة للمتصفح أو عبر DNS مخصص.</div>
-    </div>
-
-    <div class="section"><div class="toggle" onclick="toggleDetails('q6')">📌 مثال على سكريبت الحظر</div>
-      <div class="details" id="q6">
-        <pre><code>&lt;style&gt;
-  [id*="ad"], .ad, .ads, .sponsor {
-    display: none !important;
-  }
-&lt;/style&gt;</code></pre>
-      </div>
-    </div>
-
-    <!-- من نحن -->
-    <div class="section">
-      <h2>من نحن</h2>
-      <p>نحن فريق جزائري مستقل نهدف لتقديم أدوات تساعد على تصفح الإنترنت براحة، دون إعلانات مزعجة.</p>
-    </div>
-
-    <!-- سياسة الخصوصية -->
-    <div class="section">
-      <h2>سياسة الخصوصية</h2>
-      <p>نحن لا نجمع بياناتك، وكل العمليات تتم على جهازك فقط. خصوصيتك أولويتنا القصوى.</p>
-    </div>
-
-  </div>
-
-  <!-- رسالة شكرا -->
-  <div id="thanksMessage" class="message">
-    ✅ شكراً لتواصلك معنا! سيتم الرد عليك قريباً 💌
-  </div>
+  <!-- باقي الأقسام نضيفها في المراحل الجاية -->
 
   <footer>
-    <a href="#" onclick="showThanks()">📧 تواصل معنا</a>
-    <span>جميع الحقوق محفوظة © 2025</span>
+    <p>© 2025 موقع حجب الإعلانات - جميع الحقوق محفوظة</p>
   </footer>
 
-  <!-- السكريبت -->
+  <button id="scrollTop" onclick="scrollToTop()">↑</button>
+
   <script>
-    function toggleLanguageMenu() {
-      const menu = document.getElementById("languageMenu");
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
-    }
-
-    function setLanguage(lang) {
-      alert("تم اختيار اللغة: " + lang + " (سندعمها قريبًا!) 🌍");
-      document.getElementById("languageMenu").style.display = "none";
-    }
-
-    function toggleDetails(id) {
-      const details = document.getElementById(id);
-      details.style.display = details.style.display === "block" ? "none" : "block";
-    }
-
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark");
-      const icon = document.querySelector(".dark-toggle");
-      icon.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
-    }
-
-    function showThanks() {
-      document.getElementById("thanksMessage").style.display = "block";
-      window.location.href = "mailto:zelbahdalila@gmail.com";
+    // زر الرجوع للأعلى
+    const scrollBtn = document.getElementById("scrollTop");
+    window.onscroll = function () {
+      scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
+    };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 
