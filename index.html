@@ -98,6 +98,19 @@
 <body>
 
   <header>
+<!-- 🔘 زر الوضع الليلي -->
+<div style="text-align:center; margin: 20px;">
+  <button onclick="toggleDarkMode()">🌓 تبديل الوضع (ليلي / نهاري)</button>
+</div>
+
+<!-- 🌐 زر اللغة -->
+<div style="text-align:center; margin-bottom: 20px;">
+  <select onchange="changeLanguage(this.value)">
+    <option value="ar">🇩🇿 العربية</option>
+    <option value="fr">🇫🇷 Français</option>
+    <option value="en">🇬🇧 English</option>
+  </select>
+</div>
     <h1>👋 مرحباً بك في موقع حجب الإعلانات</h1>
     <p>تصفح بأمان وراحة بدون إعلانات مزعجة!</p>
   </header>
