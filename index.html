@@ -13,7 +13,18 @@
       --dark-bg: #222;
       --dark-text: #f5f5dc;
     }
+<script>
+  // 🌙 الوضع الليلي
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
 
+  // 🌐 تغيير اللغة (نموذج بسيط للتبديل)
+  function changeLanguage(lang) {
+    alert("سيتم تحويل الموقع إلى اللغة: " + lang + " (الميزة قيد التطوير 🔧)");
+    // مستقبلاً يمكن إعادة التوجيه إلى صفحات: index-fr.html أو index-en.html
+  }
+</script>
     body {
       font-family: 'Cairo', sans-serif;
       background-color: var(--main-bg);
