@@ -1,225 +1,70 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>موقع حجب الإعلانات</title>
-  <style>
-    :root {
-      --main-bg: #f5f5dc;
-      --text-color: #222;
-      --accent: #d2b48c;
-      --light-bg: #ffffff;
-      --dark-bg: #222;
-      --dark-text: #f5f5dc;
-    }
-
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: var(--main-bg);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: var(--accent);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      border-bottom: 4px solid #c0a060;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-    }
-
-    section {
-      padding: 20px;
-      margin: 20px;
-      background: var(--light-bg);
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #4b3b2a;
-      margin-bottom: 15px;
-    }
-
-    details {
-      background-color: #fff8dc;
-      margin-bottom: 10px;
-      padding: 10px 15px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    details summary {
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    details[open] {
-      background-color: #f0e7c9;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    table th, table td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
-
-    table th {
-      background-color: #d2b48c;
-      color: white;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #eee;
-      margin-top: 40px;
-      font-weight: bold;
-    }
-
-    button {
-      background-color: #8b5e3c;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ✅ الواجهة الرئيسية -->
-  <header>
-    <h1>👋 مرحباً بك في موقع حجب الإعلانات</h1>
-    <p>استمتع بتصفح خالٍ من الإعلانات المزعجة وسريع وآمن 💻</p>
-  </header>
-
-  <!-- ❓ الأسئلة الشائعة -->
-  <section id="faq">
-    <h2>❓ الأسئلة الشائعة</h2>
-
-    <details><summary>🔍 ما هو DNS؟</summary><p>نظام يترجم أسماء المواقع إلى أرقام يفهمها الجهاز.</p></details>
-    <details><summary>💡 لماذا نستخدم DNS مخصص؟</summary><p>لزيادة الخصوصية، حجب الإعلانات، وتسريع التصفح.</p></details>
-    <details><summary>📍 أين أضع DNS؟</summary><p>من إعدادات الشبكة في الهاتف أو الحاسوب.</p></details>
-    <details><summary>🚫 ما هو سكريبت الحظر؟</summary><p>كود برمجي لمنع ظهور الإعلانات أثناء التصفح.</p></details>
-    <details><summary>📱 كيف أستخدمه على الهاتف؟</summary><p>عبر تغيير DNS أو استخدام متصفح يدعم الحجب مثل Brave.</p></details>
-    <details><summary>💰 هل الموقع مجاني؟</summary><p>نعم، الموقع مجاني 100% بدون تسجيل.</p></details>
-    <details><summary>🧠 نصائح الاستخدام</summary><p>استخدم DNS آمن، وفعّل الحجب على جميع الأجهزة.</p></details>
-    <details><summary>🌟 مميزات الموقع</summary><p>سهل، مجاني، سريع، يدعم جميع الأجهزة، ويعمل بدون تطبيقات.</p></details>
-  </section>
-
-  <!-- 🧪 زر اختبار الحجب -->
-  <section id="test">
-    <h2>🧪 جرب حجب الإعلانات</h2>
-    <p>هل ما زلت ترى الإعلانات؟ جرب الاختبار وتأكد:</p>
-    <button onclick="window.open('https://ads-block-test.com', '_blank')">🔍 اختبر الآن</button>
-  </section>
-
-  <!-- ⚖️ مقارنة DNS -->
-  <section id="dns-comparison">
-    <h2>⚖️ مقارنة بين DNS العادي و DNS الآمن</h2>
-    <table>
-      <tr>
-        <th>الميزة</th>
-        <th>DNS عادي</th>
-        <th>DNS آمن</th>
-      </tr>
-      <tr><td>السرعة</td><td>متوسطة</td><td>سريعة</td></tr>
-      <tr><td>حجب الإعلانات</td><td>❌</td><td>✅</td></tr>
-      <tr><td>الحماية من المواقع الضارة</td><td>❌</td><td>✅</td></tr>
-      <tr><td>الخصوصية</td><td>❌</td><td>✅</td></tr>
-    </table>
-  </section>
-
-  <!-- 📃 شروط الاستخدام -->
-  <section>
-    <details>
-      <summary>📃 شروط الاستخدام</summary>
-      <ul>
-        <li>يُمنع استخدام الموقع لأغراض غير قانونية.</li>
-        <li>لا نجمع أي بيانات دون إذنك.</li>
-        <li>نحتفظ بحق تعديل الشروط دون إشعار مسبق.</li>
-      </ul>
-    </details>
-  </section>
-
-  <!-- 📩 تواصل معنا -->
-  <section>
-    <details>
-      <summary>📩 تواصل معنا</summary>
-      <form action="mailto:zelbahdalila@gmail.com" method="POST" enctype="text/plain" style="margin-top: 10px;">
-        <label>الاسم:</label><br>
-        <input type="text" name="name" required style="width: 100%; padding: 10px;"><br><br>
-        <label>البريد الإلكتروني:</label><br>
-        <input type="email" name="email" required style="width: 100%; padding: 10px;"><br><br>
-        <label>رسالتك:</label><br>
-        <textarea name="message" rows="4" required style="width: 100%; padding: 10px;"></textarea><br><br>
-        <button type="submit">📨 إرسال</button>
-      </form>
-    </details>
-  </section>
-
-  <!-- 👥 من نحن -->
-  <section>
-    <details>
-      <summary>👥 من نحن</summary>
-      <p style="margin-top:10px;">
-        نحن فريق شغوف بحماية تجربة التصفح لديك ❤️ هدفنا تقديم أدوات بسيطة وآمنة لحجب الإعلانات.<br>
-        <strong>🔧 موقعنا لا يزال في طور الإنشاء ونتقبل أي نصيحة لتطويره.</strong>
-      </p>
-    </details>
-  </section>
-
-  <!-- 💬 آراء المستخدمين -->
-  <section>
-    <details>
-      <summary>💬 آراء المستخدمين</summary>
-      <blockquote style="margin-top:10px;">“منعلي الإعلانات فعلاً! راحة حقيقية 👌” – سارة</blockquote>
-      <blockquote>“من قبل كان ثقيل، توا خفيف بزاف.” – ياسين</blockquote>
-    </details>
-  </section>
-
-  <!-- 📊 إحصائيات الموقع -->
-  <section>
-    <details>
-      <summary>📊 إحصائيات الموقع</summary>
-      <p style="margin-top:10px;">📅 عدد الزوار: <strong>12,485</strong></p>
-      <p>🛑 إعلانات محجوبة: <strong>3,000,000+</strong></p>
-      <p>🌍 دول مستعملة: <strong>+47</strong></p>
-    </details>
-  </section>
-
-  <!-- ⬆️ زر الرجوع للأعلى -->
-  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: #8b5e3c;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    z-index: 999;
-  ">↑</button>
-
-  <!-- 📝 الحقوق -->
-  <footer>
-    © 2025 جميع الحقوق محفوظة - موقع حجب الإعلانات
-  </footer>
-
-</body>
-</html>
+<!-- 🛡️ قسم DNS وسكريبت الحظر --><section id="dns-script">
+  <h2>📡 ما هو DNS؟ وكيف يعمل؟</h2>
+  <p>
+    DNS هو اختصار لـ "نظام أسماء النطاقات"، وهو يشبه دليل الهاتف الخاص بالإنترنت.
+    فعندما تكتب اسم موقع مثل <strong>www.google.com</strong>، يقوم DNS بتحويل الاسم إلى عنوان رقمي (IP) يستطيع جهازك فهمه للوصول إلى الموقع المطلوب.
+  </p>
+  <p>
+    تغيير DNS يساعدك على:
+    <ul>
+      <li>تسريع التصفح</li>
+      <li>حجب الإعلانات المزعجة</li>
+      <li>زيادة الخصوصية</li>
+      <li>الحماية من المواقع الضارة</li>
+    </ul>
+  </p>  <h2>🚫 ما هو سكريبت الحظر؟</h2>
+  <p>
+    سكريبت الحظر هو كود برمجي يُستخدم لمنع الإعلانات من الظهور أثناء تصفح المواقع.
+    يقوم بالتعرف على عناصر الإعلانات وإزالتها تلقائيًا من الصفحة.
+  </p>  <h2>📱 كيفية استخدام DNS وسكريبت الحظر على الهاتف</h2>
+  <h3>1. تغيير DNS (للأجهزة الحديثة):</h3>
+  <ol>
+    <li>افتح "الإعدادات" → "الشبكة والإنترنت".</li>
+    <li>اختر "DNS خاص" (Private DNS).</li>
+    <li>أدخل: <code>dns.adguard.com</code> أو <code>1dot1dot1dot1.cloudflare-dns.com</code></li>
+    <li>اضغط "حفظ".</li>
+  </ol>  <h3>2. تغيير DNS يدويًا (للأجهزة القديمة):</h3>
+  <ol>
+    <li>اذهب إلى "Wi-Fi"، اضغط مطولًا على الشبكة واختر "تعديل".</li>
+    <li>فعّل "إعدادات IP" → اجعلها "ثابتة (Static)".</li>
+    <li>أدخل:
+      <br><code>DNS 1: 94.140.14.14</code>
+      <br><code>DNS 2: 94.140.15.15</code>
+    </li>
+    <li>اضغط "حفظ".</li>
+  </ol>  <h3>3. استخدام سكريبت الحظر:</h3>
+  <ol>
+    <li>قم بتثبيت متصفح <strong>Kiwi</strong> أو <strong>Firefox</strong>.</li>
+    <li>ثبّت الإضافة <strong>uBlock Origin</strong>.</li>
+    <li>افتح الإعدادات → "My Filters".</li>
+    <li>ألصق الكود التالي:</li>
+  </ol>
+  <pre style="background:#eee;padding:10px;border-radius:8px;">
+##.ad, ##iframe[src*="ads"], ##[id*="ad"]
+  </pre>  <h2>💻 كيفية استخدام DNS وسكريبت الحظر على الحاسوب</h2>
+  <h3>1. تغيير DNS في Windows:</h3>
+  <ol>
+    <li>افتح "لوحة التحكم" → "مركز الشبكة والمشاركة".</li>
+    <li>اختر "تغيير إعدادات المحول".</li>
+    <li>اضغط بزر الفأرة الأيمن على الشبكة، ثم اختر "خصائص".</li>
+    <li>اختر "IPv4" واضغط "خصائص".</li>
+    <li>أدخل DNS التالي:
+      <br><code>DNS 1: 94.140.14.14</code>
+      <br><code>DNS 2: 94.140.15.15</code>
+    </li>
+    <li>اضغط "موافق" ثم أعد الاتصال.</li>
+  </ol>  <h3>2. إضافة سكريبت الحظر في المتصفح:</h3>
+  <ol>
+    <li>ثبّت الإضافة <strong>uBlock Origin</strong> على Chrome أو Firefox.</li>
+    <li>ادخل إلى الإعدادات → "My Filters".</li>
+    <li>ألصق الكود التالي:</li>
+  </ol>
+  <pre style="background:#eee;padding:10px;border-radius:8px;">
+document.addEventListener('DOMContentLoaded', function () {
+  const adSelectors = ['iframe[src*="ads"]', '[class*="ad"]', '[id*="ad"]'];
+  adSelectors.forEach(selector => {
+    document.querySelectorAll(selector).forEach(el => el.remove());
+  });
+});
+  </pre>
+</section>
