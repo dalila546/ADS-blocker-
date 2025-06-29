@@ -1,83 +1,122 @@
-<!-- 📡 قسم شرح DNS وسكريبت الحظر -->
-<section id="dns-script">
-  <h2>📡 ما هو DNS؟ وكيف يعمل؟</h2>
-  <p>
-    DNS هو اختصار لـ "نظام أسماء النطاقات"، وهو يشبه دليل الهاتف الخاص بالإنترنت.  
-    فعندما تكتب اسم موقع مثل <strong>www.google.com</strong>، يقوم DNS بتحويل الاسم إلى عنوان رقمي (IP) يستطيع جهازك فهمه للوصول إلى الموقع المطلوب.
-  </p>
-  <p>
-    تغيير DNS يساعدك على:
-    <ul>
-      <li>تسريع التصفح</li>
-      <li>حجب الإعلانات المزعجة</li>
-      <li>زيادة الخصوصية</li>
-      <li>الحماية من المواقع الضارة</li>
-    </ul>
-  </p>
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موقع حجب الإعلانات</title>
+  <style>
+    :root {
+      --main-bg: #f5f5dc;
+      --text-color: #222;
+      --accent: #d2b48c;
+      --light-bg: #ffffff;
+    }body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
 
-  <h2>🚫 ما هو سكريبت الحظر؟</h2>
-  <p>
-    سكريبت الحظر هو كود برمجي يُستخدم لمنع الإعلانات من الظهور أثناء تصفح المواقع.  
-    يقوم بالتعرف على عناصر الإعلانات وإزالتها تلقائيًا من الصفحة.
-  </p>
+header {
+  background-color: var(--accent);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
 
-  <h2>📱 كيفية استخدام DNS وسكريبت الحظر على الهاتف</h2>
-  <h3>1. تغيير DNS (للأجهزة الحديثة):</h3>
-  <ol>
-    <li>افتح "الإعدادات" → "الشبكة والإنترنت".</li>
-    <li>اختر "DNS خاص" (Private DNS).</li>
-    <li>أدخل: <code>dns.adguard.com</code> أو <code>1dot1dot1dot1.cloudflare-dns.com</code></li>
-    <li>اضغط "حفظ".</li>
-  </ol>
+section {
+  padding: 20px;
+  margin: 20px;
+  background: var(--light-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
-  <h3>2. تغيير DNS يدويًا (للأجهزة القديمة):</h3>
-  <ol>
-    <li>اذهب إلى "Wi-Fi"، اضغط مطولًا على الشبكة واختر "تعديل".</li>
-    <li>فعّل "إعدادات IP" → اجعلها "ثابتة (Static)".</li>
-    <li>أدخل:
-      <br><code>DNS 1: 94.140.14.14</code>
-      <br><code>DNS 2: 94.140.15.15</code>
-    </li>
-    <li>اضغط "حفظ".</li>
-  </ol>
+h2 {
+  color: #4b3b2a;
+}
 
-  <h3>3. استخدام سكريبت الحظر:</h3>
-  <ol>
-    <li>قم بتثبيت متصفح <strong>Kiwi</strong> أو <strong>Firefox</strong>.</li>
-    <li>ثبّت الإضافة <strong>uBlock Origin</strong>.</li>
-    <li>افتح الإعدادات → "My Filters".</li>
-    <li>ألصق الكود التالي:</li>
-  </ol>
-  <pre style="background:#eee;padding:10px;border-radius:8px;">
-##.ad, ##iframe[src*="ads"], ##[id*="ad"]
-  </pre>
+details {
+  background-color: #fff8dc;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
-  <h2>💻 كيفية استخدام DNS وسكريبت الحظر على الحاسوب</h2>
-  <h3>1. تغيير DNS في Windows:</h3>
-  <ol>
-    <li>افتح "لوحة التحكم" → "مركز الشبكة والمشاركة".</li>
-    <li>اختر "تغيير إعدادات المحول".</li>
-    <li>اضغط بزر الفأرة الأيمن على الشبكة، ثم اختر "خصائص".</li>
-    <li>اختر "IPv4" واضغط "خصائص".</li>
-    <li>أدخل DNS التالي:
-      <br><code>DNS 1: 94.140.14.14</code>
-      <br><code>DNS 2: 94.140.15.15</code>
-    </li>
-    <li>اضغط "موافق" ثم أعد الاتصال.</li>
-  </ol>
+details summary {
+  font-weight: bold;
+  cursor: pointer;
+}
 
-  <h3>2. إضافة سكريبت الحظر في المتصفح:</h3>
-  <ol>
-    <li>ثبّت الإضافة <strong>uBlock Origin</strong> على Chrome أو Firefox.</li>
-    <li>ادخل إلى الإعدادات → "My Filters".</li>
-    <li>ألصق الكود التالي:</li>
-  </ol>
-  <pre style="background:#eee;padding:10px;border-radius:8px;">
-document.addEventListener('DOMContentLoaded', function () {
-  const adSelectors = ['iframe[src*="ads"]', '[class*="ad"]', '[id*="ad"]'];
-  adSelectors.forEach(selector => {
-    document.querySelectorAll(selector).forEach(el => el.remove());
-  });
-});
-  </pre>
-</section>
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #eee;
+  font-weight: bold;
+}
+
+button {
+  background-color: #8b5e3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #8b5e3c;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+  </style>
+</head>
+<body>  <header>
+    <h1>🚫 مرحباً بك في موقع حجب الإعلانات</h1>
+    <p>جرب التصفح بدون إعلانات مزعجة وبكل أمان وخصوصية.</p>
+  </header>  <section id="faq">
+    <h2>❓ الأسئلة الشائعة</h2>
+    <details><summary>ما هو DNS؟</summary><p>نظام أسماء النطاقات يُترجم أسماء المواقع إلى عناوين IP.</p></details>
+    <details><summary>لماذا نستخدمه؟</summary><p>لحماية الخصوصية وتسريع التصفح ومنع الإعلانات.</p></details>
+    <details><summary>أين أضعه؟</summary><p>من إعدادات الشبكة في الهاتف أو الحاسوب.</p></details>
+    <details><summary>ما هو سكريبت الحظر؟</summary><p>كود يمنع ظهور الإعلانات داخل الصفحات.</p></details>
+    <details><summary>كيف أستخدمه على الهاتف؟</summary><p>عبر DNS أو متصفح به إضافة حظر مثل Firefox.</p></details>
+    <details><summary>هل الموقع مجاني؟</summary><p>نعم، 100% مجاني وبدون تسجيل.</p></details>
+    <details><summary>نصائح الاستخدام</summary><p>استخدم DNS موثوق وفعل الحجب في جميع أجهزتك.</p></details>
+    <details><summary>مميزات الموقع</summary><p>سهل، مجاني، سريع، بدون تطبيقات، يعمل على كل الأجهزة.</p></details>
+  </section>  <section id="dns-script">
+    <h2>🛠️ إعداد DNS وسكريبت الحظر</h2>
+    <details open><summary>📱 على الهاتف</summary>
+      <p><strong>1. تغيير DNS (Android 9+):</strong></p>
+      <ul>
+        <li>الإعدادات → الشبكة والإنترنت → DNS خاص</li>
+        <li>أدخل: <code>dns.adguard.com</code></li>
+      </ul>
+      <p><strong>2. سكريبت الحظر:</strong></p>
+      <ul>
+        <li>ثبّت متصفح Kiwi أو Firefox</li>
+        <li>ثبّت uBlock Origin وألصق الكود التالي:</li>
+      </ul>
+      <pre>##.ad, ##iframe[src*="ads"], ##[id*="ad"]</pre>
+    </details><details><summary>💻 على الحاسوب</summary>
+  <p><strong>1. تغيير DNS (Windows):</strong></p>
+  <ul>
+    <li>لوحة التحكم → مركز الشبكة → خصائص الشبكة</li>
+    <li>TCP/IPv4 → خصائص → أدخل:
+      <br>DNS 1: 94.140.14.14
+      <br>DNS 2: 94.140.15.15</li>
+  </ul>
+  <p><strong>2. سكريبت الحظر:</strong></p>
+  <ul>
+    <li>ثبّت uBlock Origin على Chrome/Firefox</li>
+
