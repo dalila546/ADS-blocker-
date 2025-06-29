@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,82 +10,87 @@
       --text-color: #222;
       --accent: #d2b48c;
       --light-bg: #ffffff;
-    }body {
-  font-family: 'Cairo', sans-serif;
-  background-color: var(--main-bg);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-}
+    }
 
-header {
-  background-color: var(--accent);
-  color: white;
-  text-align: center;
-  padding: 40px 20px;
-}
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
 
-section {
-  padding: 20px;
-  margin: 20px;
-  background: var(--light-bg);
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
+    header {
+      background-color: var(--accent);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
 
-h2 {
-  color: #4b3b2a;
-}
+    section {
+      padding: 20px;
+      margin: 20px;
+      background: var(--light-bg);
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
 
-details {
-  background-color: #fff8dc;
-  margin-bottom: 10px;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-}
+    h2 {
+      color: #4b3b2a;
+    }
 
-details summary {
-  font-weight: bold;
-  cursor: pointer;
-}
+    details {
+      background-color: #fff8dc;
+      margin-bottom: 10px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #eee;
-  font-weight: bold;
-}
+    details summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-button {
-  background-color: #8b5e3c;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-}
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      font-weight: bold;
+    }
 
-.floating-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: #8b5e3c;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 999;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
+    button {
+      background-color: #8b5e3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #8b5e3c;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
-<body>  <header>
+<body>
+
+  <header>
     <h1>🚫 مرحباً بك في موقع حجب الإعلانات</h1>
     <p>جرب التصفح بدون إعلانات مزعجة وبكل أمان وخصوصية.</p>
-  </header>  <section id="faq">
+  </header>
+
+  <section id="faq">
     <h2>❓ الأسئلة الشائعة</h2>
     <details><summary>ما هو DNS؟</summary><p>نظام أسماء النطاقات يُترجم أسماء المواقع إلى عناوين IP.</p></details>
     <details><summary>لماذا نستخدمه؟</summary><p>لحماية الخصوصية وتسريع التصفح ومنع الإعلانات.</p></details>
@@ -94,7 +100,9 @@ button {
     <details><summary>هل الموقع مجاني؟</summary><p>نعم، 100% مجاني وبدون تسجيل.</p></details>
     <details><summary>نصائح الاستخدام</summary><p>استخدم DNS موثوق وفعل الحجب في جميع أجهزتك.</p></details>
     <details><summary>مميزات الموقع</summary><p>سهل، مجاني، سريع، بدون تطبيقات، يعمل على كل الأجهزة.</p></details>
-  </section>  <section id="dns-script">
+  </section>
+
+  <section id="dns-script">
     <h2>🛠️ إعداد DNS وسكريبت الحظر</h2>
     <details open><summary>📱 على الهاتف</summary>
       <p><strong>1. تغيير DNS (Android 9+):</strong></p>
@@ -108,15 +116,92 @@ button {
         <li>ثبّت uBlock Origin وألصق الكود التالي:</li>
       </ul>
       <pre>##.ad, ##iframe[src*="ads"], ##[id*="ad"]</pre>
-    </details><details><summary>💻 على الحاسوب</summary>
-  <p><strong>1. تغيير DNS (Windows):</strong></p>
-  <ul>
-    <li>لوحة التحكم → مركز الشبكة → خصائص الشبكة</li>
-    <li>TCP/IPv4 → خصائص → أدخل:
-      <br>DNS 1: 94.140.14.14
-      <br>DNS 2: 94.140.15.15</li>
-  </ul>
-  <p><strong>2. سكريبت الحظر:</strong></p>
-  <ul>
-    <li>ثبّت uBlock Origin على Chrome/Firefox</li>
+    </details>
 
+    <details><summary>💻 على الحاسوب</summary>
+      <p><strong>1. تغيير DNS (Windows):</strong></p>
+      <ul>
+        <li>لوحة التحكم → مركز الشبكة → خصائص الشبكة</li>
+        <li>TCP/IPv4 → خصائص → أدخل:
+          <br>DNS 1: 94.140.14.14
+          <br>DNS 2: 94.140.15.15</li>
+      </ul>
+      <p><strong>2. سكريبت الحظر:</strong></p>
+      <ul>
+        <li>ثبّت uBlock Origin على Chrome/Firefox</li>
+        <li>الإعدادات → My Filters → ألصق الكود:</li>
+      </ul>
+      <pre>
+document.addEventListener('DOMContentLoaded', function () {
+  const adSelectors = ['iframe[src*="ads"]', '[class*="ad"]', '[id*="ad"]'];
+  adSelectors.forEach(selector => {
+    document.querySelectorAll(selector).forEach(el => el.remove());
+  });
+});
+      </pre>
+    </details>
+  </section>
+
+  <section>
+    <h2>🧪 اختبار حجب الإعلانات</h2>
+    <p>اضغط على الزر للتأكد من أن الحجب يعمل:</p>
+    <button onclick="window.open('https://ads-block-test.com', '_blank')">اختبر الآن</button>
+  </section>
+
+  <section>
+    <h2>💬 آراء المستخدمين</h2>
+    <details><summary>عرض الآراء</summary>
+      <p>“موقع رائع، لم أعد أرى أي إعلان!” – سارة</p>
+      <p>“تصفح أسرع وأكثر راحة.” – ياسين</p>
+    </details>
+  </section>
+
+  <section>
+    <h2>📊 إحصائيات الموقع</h2>
+    <details><summary>عرض التفاصيل</summary>
+      <p>عدد الزوار: <strong>12,485</strong></p>
+      <p>إعلانات محجوبة: <strong>3,000,000+</strong></p>
+      <p>دول مستخدمة: <strong>+47</strong></p>
+    </details>
+  </section>
+
+  <section>
+    <details><summary>📃 شروط الاستخدام</summary>
+      <ul>
+        <li>لا يُسمح باستخدام الموقع لأغراض ضارة.</li>
+        <li>لا يتم جمع بيانات المستخدمين.</li>
+      </ul>
+    </details>
+  </section>
+
+  <section>
+    <details><summary>📩 تواصل معنا</summary>
+      <form action="mailto:zelbahdalila@gmail.com" method="POST" enctype="text/plain">
+        <label>الاسم:</label><br>
+        <input type="text" name="name" required style="width:100%"><br>
+        <label>البريد الإلكتروني:</label><br>
+        <input type="email" name="email" required style="width:100%"><br>
+        <label>رسالتك:</label><br>
+        <textarea name="message" rows="4" required style="width:100%"></textarea><br>
+        <button type="submit">📨 إرسال</button>
+      </form>
+    </details>
+  </section>
+
+  <section>
+    <details><summary>👥 من نحن</summary>
+      <p>
+        نحن فريق يهتم بتقديم حلول لحجب الإعلانات بطريقة بسيطة وآمنة.<br>
+        موقعنا لا يزال في طور التطوير ونتقبل أي نصيحة لتحسينه.
+      </p>
+    </details>
+  </section>
+
+  <button class="floating-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+
+  <footer>
+    © 2025 جميع الحقوق محفوظة - موقع حجب الإعلانات
+  </footer>
+
+</body>
+</html>
