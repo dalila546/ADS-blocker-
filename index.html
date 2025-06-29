@@ -13,258 +13,111 @@
       --dark-bg: #222;
       --dark-text: #f5f5dc;
     }
-<script>
-  // 🌙 الوضع الليلي
-  function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-  }
 
-  // 🌐 تغيير اللغة (نموذج بسيط للتبديل)
-  function changeLanguage(lang) {
-    alert("سيتم تحويل الموقع إلى اللغة: " + lang + " (الميزة قيد التطوير 🔧)");
-    // مستقبلاً يمكن إعادة التوجيه إلى صفحات: index-fr.html أو index-en.html
-  }
-</script>
     body {
       font-family: 'Cairo', sans-serif;
       background-color: var(--main-bg);
+      color: var(--text-color);
       margin: 0;
       padding: 0;
-      color: var(--text-color);
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    body.dark-mode {
-      background-color: var(--dark-bg);
-      color: var(--dark-text);
     }
 
     header {
       background-color: var(--accent);
       color: white;
-      padding: 30px;
       text-align: center;
-      border-bottom: 5px solid #c0a060;
+      padding: 40px 20px;
+      border-bottom: 4px solid #c0a060;
+    }
+
+    h1 {
+      margin-bottom: 10px;
     }
 
     section {
       padding: 20px;
       margin: 20px;
+      background: var(--light-bg);
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      background-color: var(--light-bg);
-    }
-
-    body.dark-mode section {
-      background-color: #333;
     }
 
     h2 {
       color: #4b3b2a;
+      margin-bottom: 15px;
     }
 
-    button {
-      padding: 10px 20px;
-      background-color: #8b5e3c;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #a06b45;
-    }
-
-    footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #e0d2b4;
-      color: #444;
-    }
-
-    /* زر الرجوع للأعلى */
-    #scrollTop {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #8b5e3c;
-      color: white;
-      border: none;
+    details {
+      background-color: #fff8dc;
+      margin-bottom: 10px;
       padding: 10px 15px;
-      border-radius: 50%;
+      border-radius: 8px;
       cursor: pointer;
-      display: none;
-      z-index: 1000;
     }
 
-    #scrollTop:hover {
-      background-color: #a06b45;
+    details summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    details[open] {
+      background-color: #f0e7c9;
     }
   </style>
 </head>
 <body>
 
+  <!-- ✅ الواجهة الرئيسية -->
   <header>
-<!-- 🔘 زر الوضع الليلي -->
-<div style="text-align:center; margin: 20px;">
-  <button onclick="toggleDarkMode()">🌓 تبديل الوضع (ليلي / نهاري)</button>
-</div>
-
-<!-- 🌐 زر اللغة -->
-<div style="text-align:center; margin-bottom: 20px;">
-  <select onchange="changeLanguage(this.value)">
-    <option value="ar">🇩🇿 العربية</option>
-    <option value="fr">🇫🇷 Français</option>
-    <option value="en">🇬🇧 English</option>
-  </select>
-</div>
     <h1>👋 مرحباً بك في موقع حجب الإعلانات</h1>
-    <p>تصفح بأمان وراحة بدون إعلانات مزعجة!</p>
+    <p>استمتع بتصفح خالٍ من الإعلانات المزعجة وسريع وآمن 💻</p>
   </header>
 
-  <!-- باقي الأقسام نضيفها في المراحل الجاية -->
-<!-- ✅ قسم المميزات -->
-<section id="features">
-  <h2>✅ مميزات الموقع</h2>
-  <ul>
-    <li>🛡️ حماية فورية من الإعلانات</li>
-    <li>⚡ تسريع التصفح</li>
-    <li>🔒 الحفاظ على خصوصيتك</li>
-    <li>🌍 دعم متعدد اللغات</li>
-  </ul>
-</section>
+  <!-- ❓ الأسئلة الشائعة -->
+  <section id="faq">
+    <h2>❓ الأسئلة الشائعة</h2>
 
-<!-- 🧪 زر اختبار الإعلانات -->
-<section id="test">
-  <h2>🧪 جرب بنفسك!</h2>
-  <p>هل ما زلت ترى الإعلانات؟ جرب بنفسك:</p>
-  <button onclick="window.open('https://ads-block-test.com', '_blank')">🔍 اختبر الإعلانات</button>
-</section>
+    <details>
+      <summary>🔍 ما هو DNS؟</summary>
+      <p>هو نظام يترجم أسماء المواقع (مثل google.com) إلى أرقام (IP) ليتعرف عليها المتصفح.</p>
+    </details>
 
-<!-- 📊 قسم الإحصائيات -->
-<section id="stats">
-  <h2>📊 إحصائيات الموقع</h2>
-  <p>📅 عدد المستخدمين هذا الشهر: <strong>+10,000</strong></p>
-  <p>🛑 الإعلانات المحجوبة: <strong>2,320,481</strong></p>
-  <p>🌐 الدول المدعومة: <strong>45+</strong></p>
-</section>
-  <footer>
-    <p>© 2025 موقع حجب الإعلانات - جميع الحقوق محفوظة</p>
-  <!-- 💬 شهادات المستخدمين -->
-<section id="testimonials">
-  <h2>💬 آراء المستخدمين</h2>
-  <blockquote>“بصراحة موقع رهيب! حجبلي كل الإعلانات المزعجة.” – سارة من الجزائر</blockquote>
-  <blockquote>“استعملتو فالدار وعلى الهاتف، فرق كبير في سرعة التصفح.” – محمد من تونس</blockquote>
-</section>
+    <details>
+      <summary>💡 لماذا نستخدم DNS مخصص؟</summary>
+      <p>لأنه يوفر حماية، سرعة، وقدرة على حجب الإعلانات والمواقع الضارة.</p>
+    </details>
 
-<!-- 📱 تطبيقات مقترحة -->
-<section id="apps">
-  <h2>📱 تطبيقات ننصح بها</h2>
-  <ul>
-    <li><a href="#">📲 DNSChanger – لتغيير DNS بسهولة</a></li>
-    <li><a href="#">🛡️ Brave Browser – متصفح مدمج بالحجب</a></li>
-  </ul>
-</section>
+    <details>
+      <summary>📍 أين أضع DNS؟</summary>
+      <p>تستطيع وضعه في إعدادات الشبكة على هاتفك أو حاسوبك.</p>
+    </details>
 
-<!-- 👤 من نحن -->
-<section id="about">
-  <h2>من نحن 🤝</h2>
-  <p>نحن فريق شغوف بحماية خصوصيتك وتحسين تجربة التصفح عبر الإنترنت. هدفنا هو تطوير أدوات بسيطة وفعالة لحجب الإعلانات المزعجة، ونسعى دائماً لتقديم حلول آمنة وسهلة الاستخدام.</p>
-</section>
-<!-- 📩 نموذج التواصل معنا -->
-<section id="contact">
-  <h2>📩 تواصل معنا</h2>
-  <form action="mailto:zelbahdalila@gmail.com" method="POST" enctype="text/plain">
-    <label>الاسم:</label><br>
-    <input type="text" name="name" required style="width: 100%; padding: 10px;"><br><br>
-    
-    <label>البريد الإلكتروني:</label><br>
-    <input type="email" name="email" required style="width: 100%; padding: 10px;"><br><br>
-    
-    <label>رسالتك:</label><br>
-    <textarea name="message" rows="5" required style="width: 100%; padding: 10px;"></textarea><br><br>
-    
-    <button type="submit">📨 إرسال</button>
-  </form>
-</section>
+    <details>
+      <summary>🚫 ما هو سكريبت الحظر؟</summary>
+      <p>هو كود يُضاف لحظر الإعلانات من التحميل على الصفحة.</p>
+    </details>
 
-<!-- ❓ الأسئلة الشائعة (FAQ) -->
-<section id="faq">
-  <h2>❓ الأسئلة الشائعة</h2>
-  <details>
-    <summary>ما هو حجب الإعلانات؟</summary>
-    <p>هو منع الإعلانات من الظهور أثناء تصفح الإنترنت لحماية المستخدم وتسريع التصفح.</p>
-  </details>
-  <details>
-    <summary>هل الموقع مجاني؟</summary>
-    <p>نعم، الموقع مجاني 100% ومفتوح للجميع.</p>
-  </details>
-  <details>
-    <summary>هل يمكنني استخدامه على الهاتف؟</summary>
-    <p>بالتأكيد! الموقع يعمل على جميع الأجهزة والمتصفحات.</p>
-  </details>
-</section>
+    <details>
+      <summary>📱 كيف يمكنني استخدامه على الهاتف؟</summary>
+      <p>من خلال تغيير DNS أو تثبيت المتصفح الداعم للحظر مثل Brave أو Firefox مع AdBlock.</p>
+    </details>
 
-<!-- ⚖️ مقارنة DNS -->
-<section id="dns-comparison">
-  <h2>⚖️ مقارنة بين DNS العادي و DNS الآمن</h2>
-  <table style="width:100%; border-collapse: collapse;">
-    <tr style="background-color: #d2b48c; color: white;">
-      <th>الميزة</th>
-      <th>DNS عادي</th>
-      <th>DNS آمن (موصى به)</th>
-    </tr>
-    <tr>
-      <td>السرعة</td>
-      <td>متوسطة</td>
-      <td>عالية</td>
-    </tr>
-    <tr>
-      <td>حجب الإعلانات</td>
-      <td>❌</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td>الحماية من المواقع الخبيثة</td>
-      <td>❌</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td>الخصوصية</td>
-      <td>❌</td>
-      <td>✅</td>
-    </tr>
-  </table>
-</section>
+    <details>
+      <summary>💰 هل الموقع مجاني؟</summary>
+      <p>نعم، الموقع مجاني 100% ولا يتطلب أي تسجيل.</p>
+    </details>
 
-<!-- 📃 شروط الاستخدام -->
-<section id="terms">
-  <h2>📃 شروط الاستخدام</h2>
-  <p>باستخدامك هذا الموقع، فإنك توافق على ما يلي:</p>
-  <ul>
-    <li>يُمنع استغلال الموقع لأغراض ضارة أو غير قانونية.</li>
-    <li>الموقع لا يجمع أي معلومات شخصية دون إذنك.</li>
-    <li>نحتفظ بحق تعديل الشروط في أي وقت دون إشعار مسبق.</li>
-  </ul>
-</section>
-</footer>
+    <details>
+      <summary>🧠 نصائح الاستخدام</summary>
+      <p>احرص على تحديث إعداداتك بشكل منتظم، وفعّل الحجب على جميع المتصفحات.</p>
+    </details>
 
-  <button id="scrollTop" onclick="scrollToTop()">↑</button>
+    <details>
+      <summary>🌟 مميزات الموقع</summary>
+      <p>سهل، سريع، مجاني، يحمي خصوصيتك، ويدعم الهواتف والأجهزة.</p>
+    </details>
 
-  <script>
-    // زر الرجوع للأعلى
-    const scrollBtn = document.getElementById("scrollTop");
-    window.onscroll = function () {
-      scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
-    };
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+  </section>
 
 </body>
 </html>
