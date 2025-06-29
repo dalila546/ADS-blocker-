@@ -1,167 +1,244 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>موقع حجب الإعلانات</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>حاجب الإعلانات</title>
   <style>
+    :root {
+      --bg: #f5f1e6;
+      --text: #333;
+      --box: #fff;
+    }
+
+    body.dark {
+      --bg: #1e1e1e;
+      --text: #ddd;
+      --box: #2a2a2a;
+    }
+
     body {
-      background-color: #f5f5dc;
-      color: #222;
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
       padding: 20px;
-      transition: background-color 0.3s, color 0.3s;
+      transition: 0.3s;
     }
 
-    .dark-mode {
-      background-color: #121212;
-      color: #f5f5f5;
+    header {
+      background-color: #d9c9a3;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
     }
 
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
+    h1 {
+      margin: 0;
     }
 
-    .lang-select img {
-      width: 30px;
+    .content {
+      margin-top: 30px;
+    }
+
+    .language-icon {
+      position: absolute;
+      top: 20px;
+      right: 60px;
       cursor: pointer;
-      margin-left: 10px;
     }
 
-    .toggle-button {
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 22px;
       cursor: pointer;
-      padding: 8px 14px;
-      border: none;
-      background-color: #333;
-      color: white;
-      border-radius: 5px;
-      margin-top: 10px;
     }
 
-    details {
-      background-color: rgba(0,0,0,0.05);
-      padding: 10px;
-      margin-top: 10px;
+    .language-menu {
+      display: none;
+      position: absolute;
+      top: 50px;
+      right: 60px;
+      background-color: var(--box);
+      border: 1px solid #ccc;
       border-radius: 8px;
+      padding: 10px;
     }
 
-    summary {
+    .language-menu button {
+      display: block;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 8px;
+      text-align: right;
+      cursor: pointer;
+    }
+
+    .section {
+      margin-top: 20px;
+      background: var(--box);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .toggle {
       cursor: pointer;
       font-weight: bold;
     }
 
-    a {
-      color: #0066cc;
-      font-weight: bold;
+    .details {
+      display: none;
+      margin-top: 10px;
     }
 
-    .flag {
-      border: 1px solid #999;
-      border-radius: 4px;
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
     }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+      text-align: center;
+      color: #666;
+    }
+
+    footer a {
+      color: #444;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* رسائل خاصة */
+    .message {
+      background-color: var(--box);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin-top: 30px;
+      text-align: center;
+      display: none;
+    }
+
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <div class="lang-select">
-      🌍 اختر اللغة:
-      <img src="https://flagcdn.com/w40/sa.png" class="flag" alt="AR" onclick="changeLang('ar')">
-      <img src="https://flagcdn.com/w40/fr.png" class="flag" alt="FR" onclick="changeLang('fr')">
-      <img src="https://flagcdn.com/w40/gb.png" class="flag" alt="EN" onclick="changeLang('en')">
-    </div>
-    <button class="toggle-button" onclick="toggleDarkMode()">🌙 الوضع المظلم</button>
+
+  <!-- زر تغيير الوضع -->
+  <div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
+
+  <!-- أيقونة اللغة -->
+  <img src="https://img.icons8.com/emoji/48/globe-showing-europe-africa-emoji.png"
+       alt="Lang" class="language-icon" onclick="toggleLanguageMenu()" />
+
+  <div class="language-menu" id="languageMenu">
+    <button onclick="setLanguage('ar')"><img src="https://img.icons8.com/color/48/algeria.png" width="20"> العربية</button>
+    <button onclick="setLanguage('fr')"><img src="https://img.icons8.com/color/48/france.png" width="20"> Français</button>
+    <button onclick="setLanguage('en')"><img src="https://img.icons8.com/color/48/usa.png" width="20"> English</button>
   </div>
 
-  <h1 id="title">موقع حجب الإعلانات</h1>
-  <p id="desc">مرحبًا بك! هذا الموقع يشرح كيفية حجب الإعلانات ويوفر أدوات لذلك.</p>
+  <header>
+    <h1>🚫 مرحبا بك في موقع حجب الإعلانات</h1>
+  </header>
 
-  <details>
-    <summary id="dns">ما هو DNS؟</summary>
-    <p id="dns-desc">DNS هو النظام الذي يحول أسماء المواقع إلى عناوين IP. حجب الإعلانات يتم أحيانًا من خلال تعديل DNS.</p>
-  </details>
+  <div class="content">
 
-  <details>
-    <summary id="ads">ما هي الإعلانات المزعجة؟</summary>
-    <p id="ads-desc">الإعلانات المزعجة هي النوافذ المنبثقة، الإعلانات الصوتية أو الفيديوهات التي تظهر تلقائيًا دون إذنك.</p>
-  </details>
+    <!-- الأسئلة -->
+    <div class="section"><div class="toggle" onclick="toggleDetails('q1')">📌 ما هو DNS؟</div>
+      <div class="details" id="q1">DNS يترجم أسماء المواقع إلى عناوين IP، ليسهّل الوصول إليها.</div>
+    </div>
 
-  <details>
-    <summary id="tools">أدوات الحجب</summary>
-    <p id="tools-desc">
-      يمكنك استخدام خدمات DNS مثل:
-      <br>🔹 AdGuard: 94.140.14.14 / 94.140.15.15<br>
-      🔹 NextDNS: 45.90.28.0 / 45.90.30.0
-      <br><br>
-      لتحميل سكريبت الحظر: <a href="block-ads.sh" target="_blank">اضغط هنا</a>
-    </p>
-  </details>
+    <div class="section"><div class="toggle" onclick="toggleDetails('q2')">📌 ما هو سكريبت الحظر؟</div>
+      <div class="details" id="q2">سكريبت الحظر هو كود لإخفاء أو منع ظهور الإعلانات.</div>
+    </div>
 
+    <div class="section"><div class="toggle" onclick="toggleDetails('q3')">📌 لماذا نستخدمه؟</div>
+      <div class="details" id="q3">لأن الإعلانات مزعجة، وبطّئ التصفح، وتستهلك البيانات.</div>
+    </div>
+
+    <div class="section"><div class="toggle" onclick="toggleDetails('q4')">📌 كيف يمكنه حظر الإعلانات؟</div>
+      <div class="details" id="q4">يقوم بالتعرف على العناصر الإعلانية وإخفائها تلقائيًا.</div>
+    </div>
+
+    <div class="section"><div class="toggle" onclick="toggleDetails('q5')">📌 كيف نستخدمه وأين نضعه؟</div>
+      <div class="details" id="q5">نضعه داخل كود HTML أو كإضافة للمتصفح أو عبر DNS مخصص.</div>
+    </div>
+
+    <div class="section"><div class="toggle" onclick="toggleDetails('q6')">📌 مثال على سكريبت الحظر</div>
+      <div class="details" id="q6">
+        <pre><code>&lt;style&gt;
+  [id*="ad"], .ad, .ads, .sponsor {
+    display: none !important;
+  }
+&lt;/style&gt;</code></pre>
+      </div>
+    </div>
+
+    <!-- من نحن -->
+    <div class="section">
+      <h2>من نحن</h2>
+      <p>نحن فريق جزائري مستقل نهدف لتقديم أدوات تساعد على تصفح الإنترنت براحة، دون إعلانات مزعجة.</p>
+    </div>
+
+    <!-- سياسة الخصوصية -->
+    <div class="section">
+      <h2>سياسة الخصوصية</h2>
+      <p>نحن لا نجمع بياناتك، وكل العمليات تتم على جهازك فقط. خصوصيتك أولويتنا القصوى.</p>
+    </div>
+
+  </div>
+
+  <!-- رسالة شكرا -->
+  <div id="thanksMessage" class="message">
+    ✅ شكراً لتواصلك معنا! سيتم الرد عليك قريباً 💌
+  </div>
+
+  <footer>
+    <a href="#" onclick="showThanks()">📧 تواصل معنا</a>
+    <span>جميع الحقوق محفوظة © 2025</span>
+  </footer>
+
+  <!-- السكريبت -->
   <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
+    function toggleLanguageMenu() {
+      const menu = document.getElementById("languageMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
 
-    function changeLang(lang) {
-      const texts = {
-        ar: {
-          title: "موقع حجب الإعلانات",
-          desc: "مرحبًا بك! هذا الموقع يشرح كيفية حجب الإعلانات ويوفر أدوات لذلك.",
-          dns: "ما هو DNS؟",
-          dnsDesc: "DNS هو النظام الذي يحول أسماء المواقع إلى عناوين IP. حجب الإعلانات يتم أحيانًا من خلال تعديل DNS.",
-          ads: "ما هي الإعلانات المزعجة؟",
-          adsDesc: "الإعلانات المزعجة هي النوافذ المنبثقة، الإعلانات الصوتية أو الفيديوهات التي تظهر تلقائيًا دون إذنك.",
-          tools: "أدوات الحجب",
-          toolsDesc: `يمكنك استخدام خدمات DNS مثل:
-🔹 AdGuard: 94.140.14.14 / 94.140.15.15
-🔹 NextDNS: 45.90.28.0 / 45.90.30.0
+    function setLanguage(lang) {
+      alert("تم اختيار اللغة: " + lang + " (سندعمها قريبًا!) 🌍");
+      document.getElementById("languageMenu").style.display = "none";
+    }
 
-لتحميل سكريبت الحظر: <a href="block-ads.sh" target="_blank">اضغط هنا</a>`
-        },
-        fr: {
-          title: "Bloqueur de publicités",
-          desc: "Bienvenue ! Ce site explique comment bloquer les publicités et fournit des outils.",
-          dns: "Qu'est-ce que le DNS ?",
-          dnsDesc: "Le DNS traduit les noms de domaines en adresses IP. Le blocage peut être fait via DNS.",
-          ads: "Quelles sont les pubs gênantes ?",
-          adsDesc: "Les pubs gênantes incluent les pop-ups, les sons et les vidéos qui se lancent sans autorisation.",
-          tools: "Outils de blocage",
-          toolsDesc: `Vous pouvez utiliser des services DNS comme :
-🔹 AdGuard: 94.140.14.14 / 94.140.15.15
-🔹 NextDNS: 45.90.28.0 / 45.90.30.0
+    function toggleDetails(id) {
+      const details = document.getElementById(id);
+      details.style.display = details.style.display === "block" ? "none" : "block";
+    }
 
-Téléchargez le script ici : <a href="block-ads.sh" target="_blank">cliquez ici</a>`
-        },
-        en: {
-          title: "Ad Blocker Site",
-          desc: "Welcome! This site explains how to block ads and offers tools to do so.",
-          dns: "What is DNS?",
-          dnsDesc: "DNS translates domain names into IP addresses. Ad blocking can be done via DNS.",
-          ads: "What are annoying ads?",
-          adsDesc: "Annoying ads are pop-ups, autoplay videos or sounds you didn’t allow.",
-          tools: "Blocking Tools",
-          toolsDesc: `You can use DNS services like:
-🔹 AdGuard: 94.140.14.14 / 94.140.15.15
-🔹 NextDNS: 45.90.28.0 / 45.90.30.0
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+      const icon = document.querySelector(".dark-toggle");
+      icon.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    }
 
-Download script: <a href="block-ads.sh" target="_blank">click here</a>`
-        }
-      };
-
-      document.getElementById("title").innerText = texts[lang].title;
-      document.getElementById("desc").innerText = texts[lang].desc;
-      document.getElementById("dns").innerText = texts[lang].dns;
-      document.getElementById("dns-desc").innerText = texts[lang].dnsDesc;
-      document.getElementById("ads").innerText = texts[lang].ads;
-      document.getElementById("ads-desc").innerText = texts[lang].adsDesc;
-      document.getElementById("tools").innerText = texts[lang].tools;
-      document.getElementById("tools-desc").innerHTML = texts[lang].toolsDesc;
-
-      document.body.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+    function showThanks() {
+      document.getElementById("thanksMessage").style.display = "block";
+      window.location.href = "mailto:zelbahdalila@gmail.com";
     }
   </script>
+
 </body>
-</html> 
+</html>
