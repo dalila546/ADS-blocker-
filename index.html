@@ -5,201 +5,187 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>موقع حجب الإعلانات</title>
   <style>
-    :root {
-      --main-bg: #f5f5dc;
-      --text-color: #222;
-      --accent: #d2b48c;
-      --light-bg: #ffffff;
-      --dark-bg: #222;
-      --dark-text: #f5f5dc;
-    }
-
     body {
-      font-family: 'Cairo', sans-serif;
-      background-color: var(--main-bg);
-      color: var(--text-color);
+      font-family: sans-serif;
+      background-color: #f5f1e9;
+      color: #333;
       margin: 0;
       padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #eee;
     }
 
     header {
-      background-color: var(--accent);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      border-bottom: 4px solid #c0a060;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-    }
-
-    section {
-      padding: 20px;
-      margin: 20px;
-      background: var(--light-bg);
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #4b3b2a;
-      margin-bottom: 15px;
-    }
-
-    details {
-      background-color: #fff8dc;
-      margin-bottom: 10px;
-      padding: 10px 15px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    details summary {
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    details[open] {
-      background-color: #f0e7c9;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    table th, table td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
-
-    table th {
-      background-color: #d2b48c;
-      color: white;
-    }
-
-    footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #eee;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    button {
-      background-color: #8b5e3c;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .bottom-links {
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 30px 0 10px;
-      font-size: 14px;
+      justify-content: space-between;
+      align-items: center;
+      background: #d8cfc1;
+      padding: 10px 20px;
     }
 
-    .bottom-links a {
-      color: #8b5e3c;
-      text-decoration: none;
+    .lang-icon {
+      cursor: pointer;
+      width: 32px;
+    }
+
+    .section {
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    summary {
+      cursor: pointer;
       font-weight: bold;
+      margin-bottom: 10px;
     }
 
-    .scroll-top {
+    .top-btn {
       position: fixed;
       bottom: 20px;
       left: 20px;
-      background-color: #8b5e3c;
+      background: #a3865c;
       color: white;
       border: none;
-      padding: 12px;
-      border-radius: 50%;
+      border-radius: 8px;
+      padding: 10px;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      z-index: 999;
+    }
+
+    footer {
+      background: #d8cfc1;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    .dark-mode footer {
+      background: #1e1e1e;
+    }
+
+    button {
+      background-color: #a3865c;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>👋 مرحباً بك في موقع حجب الإعلانات</h1>
-    <p>استمتع بتصفح خالٍ من الإعلانات المزعجة وسريع وآمن 💻</p>
+    <h1>🚫 موقع حجب الإعلانات</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/330/330439.png" alt="تغيير اللغة" class="lang-icon" onclick="toggleLanguage()" />
   </header>
 
-  <!-- ❓ الأسئلة الشائعة -->
-  <section id="faq">
-    <h2>❓ الأسئلة الشائعة</h2>
-
-    <details><summary>🔍 ما هو DNS؟</summary><p>DNS هو اختصار لـ \"Domain Name System\"، ويُستخدم لتحويل أسماء المواقع التي تكتبها في المتصفح (مثل google.com) إلى أرقام IP تُفهم من طرف أجهزة الحاسوب. بدون DNS، يجب عليك تذكّر الأرقام الطويلة عوض الأسماء. عندما نستخدم DNS مخصص وآمن، يمكننا منع تحميل الإعلانات والمواقع الضارة مباشرة من المصدر.</p></details>
-    <details><summary>💡 لماذا نستخدم DNS مخصص؟</summary><p>لأن DNS التقليدي لا يملك وظائف حماية أو تصفية. باستخدام DNS مخصص مثل AdGuard أو Cloudflare، يمكن حجب الإعلانات، تسريع تحميل الصفحات، حماية الأطفال من المحتوى غير المناسب، وزيادة الخصوصية لأنه لا يتم تعقبك أثناء التصفح.</p></details>
-    <details><summary>📍 أين أضع DNS؟</summary><p>يمكنك تغيير DNS من إعدادات الإنترنت في هاتفك أو حاسوبك. على الهاتف: من إعدادات Wi-Fi أو الشبكة. على الحاسوب: من إعدادات IPv4 في لوحة التحكم. هناك أيضًا تطبيقات أو متصفحات تساعدك على ذلك بسهولة.</p></details>
-    <details><summary>🚫 ما هو سكريبت الحظر؟</summary><p>سكريبت الحظر هو قطعة كود بسيطة تُضاف إلى المتصفح عبر إضافة مثل uBlock Origin. هذا الكود يبحث عن الإعلانات في الصفحة (مثل الصور أو الفيديوهات المزعجة) ويمنع ظهورها تلقائيًا، مما يجعل تجربة التصفح أكثر راحة وأمانًا.</p></details>
-    <details><summary>📱 كيف أستخدمه على الهاتف؟</summary><p>إذا كان هاتفك Android 9 أو أحدث، يمكنك تغيير DNS من الإعدادات بدون تطبيقات. أما إذا كان أقدم، يمكنك تعديل إعدادات Wi-Fi. للحماية الكاملة، يمكنك تحميل متصفح مثل Kiwi أو Firefox، ثم تثبيت إضافة uBlock Origin وإدخال كود الحظر في قسم My Filters.</p></details>
-    <details><summary>💰 هل الموقع مجاني؟</summary><p>نعم، الموقع مجاني تمامًا ولا يحتاج إلى تسجيل أو تحميل. نحن نقدم الأدوات والتعليمات مباشرة لك دون مقابل، فقط من أجل تحسين تجربتك على الإنترنت.</p></details>
-    <details><summary>🧠 نصائح الاستخدام</summary><p>– استخدم DNS آمن ومشهور مثل AdGuard أو Cloudflare.<br>– فعّل الحظر على جميع أجهزتك (هاتف، حاسوب، جهاز لوحي).<br>– تجنب تحميل تطبيقات غير معروفة تدّعي أنها تحجب الإعلانات لأنها قد تكون ضارة.<br>– تابع تحديثاتنا لتحصل على أفضل أداء.</p></details>
-    <details><summary>🌟 مميزات الموقع</summary><p>– مجاني بالكامل.<br>– لا يتطلب أي تسجيل أو تثبيت تطبيق.<br>– يعمل على مختلف الأنظمة: أندرويد، ويندوز، لينوكس...<br>– واجهة بسيطة وسهلة الفهم.<br>– يدعم الحجب عبر DNS أو سكريبتات مخصصة.</p></details>
-  </section>
-
-  <!-- 🧪 زر اختبار الحجب -->
-  <section>
-    <h2>🧪 جرب حجب الإعلانات</h2>
-    <p>هل ما زلت ترى الإعلانات؟ جرب الاختبار وتأكد:</p>
-    <button onclick="window.open('https://ads-block-test.com', '_blank')">🔍 اختبر الآن</button>
-  </section>
-
-  <!-- ⚖️ مقارنة DNS -->
-  <section>
-    <h2>⚖️ مقارنة بين DNS العادي و DNS الآمن</h2>
-    <table>
-      <tr><th>الميزة</th><th>DNS عادي</th><th>DNS آمن</th></tr>
-      <tr><td>السرعة</td><td>متوسطة</td><td>سريعة</td></tr>
-      <tr><td>حجب الإعلانات</td><td>❌</td><td>✅</td></tr>
-      <tr><td>الحماية من المواقع الضارة</td><td>❌</td><td>✅</td></tr>
-      <tr><td>الخصوصية</td><td>❌</td><td>✅</td></tr>
-    </table>
-  </section>
-
-  <!-- 💬 آراء المستخدمين -->
-  <section>
-    <details>
-      <summary>💬 آراء المستخدمين</summary>
-      <blockquote>“فعلاً موقع ممتاز! حجبلي الإعلانات المزعجة.” – فاطمة</blockquote>
-      <blockquote>“خففلي التصفح بزاف، شكراً!” – أيوب</blockquote>
-    </details>
-  </section>
-
-  <!-- 📊 إحصائيات الموقع -->
-  <section>
-    <details>
-      <summary>📊 إحصائيات الموقع</summary>
-      <p>📅 عدد الزوار: <strong>12,485</strong></p>
-      <p>🛑 إعلانات محجوبة: <strong>3,000,000+</strong></p>
-      <p>🌍 دول مستعملة: <strong>+47</strong></p>
-    </details>
-  </section>
-
-  <!-- 🌐 روابط أسفل الصفحة -->
-  <div class="bottom-links">
-    <a href="#">من نحن</a>
-    <a href="#">تواصل معنا</a>
-    <a href="#">شروط الاستخدام</a>
-    <a href="#">سياسة الخصوصية</a>
+  <div class="section">
+    <summary onclick="toggleExpand(this)">📌 ما هو DNS؟</summary>
+    <div hidden>
+      <p>DNS هو نظام يسمح بترجمة أسماء المواقع إلى عناوين IP، ويمكن استخدامه لحجب الإعلانات عن طريق تحويل روابط الإعلانات إلى لا شيء.</p>
+    </div>
   </div>
 
-  <!-- 📝 الحقوق -->
+  <div class="section">
+    <summary onclick="toggleExpand(this)">🛡️ ما هو سكريبت الحظر؟</summary>
+    <div hidden>
+      <p>سكريبت الحظر هو كود صغير تضيفه إلى متصفحك أو جهازك ليمنع تحميل عناصر الإعلانات تلقائيًا.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <summary onclick="toggleExpand(this)">📱 كيفية استعمال DNS وسكريبت الحظر على الهاتف</summary>
+    <div hidden>
+      <p>ادخل إلى إعدادات الشبكة، ثم غير DNS إلى عناوين حظر مثل AdGuard. أو استعمل تطبيقات متخصصة.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <summary onclick="toggleExpand(this)">💻 كيفية الاستعمال على الحاسوب</summary>
+    <div hidden>
+      <p>على الحاسوب، يمكنك تعديل إعدادات DNS من النظام أو تثبيت إضافات حظر الإعلانات مثل uBlock Origin مع سكريبتات إضافية.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <summary onclick="toggleExpand(this)">❓ الأسئلة الشائعة</summary>
+    <div hidden>
+      <p><strong>هل هذا الموقع مجاني؟</strong> نعم، بالكامل.</p>
+      <p><strong>هل أحتاج لتثبيت شيء؟</strong> حسب الطريقة: DNS لا، سكريبت نعم.</p>
+      <p><strong>هل يؤثر على سرعة الإنترنت؟</strong> بل يحسنها أحيانًا.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <summary onclick="toggleExpand(this)">⭐ آراء المستخدمين</summary>
+    <div hidden>
+      <p>🌟 "ممتاز جدًا، خف الإعلانات بشكل واضح!"</p>
+      <p>🌟 "أفضل موقع لحجب الإعلانات بدون تعقيد."</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <summary onclick="toggleExpand(this)">📨 تواصل معنا</summary>
+    <div hidden>
+      <p>راسلنا عبر البريد: <a href="mailto:zelbahdalila@gmail.com">zelbahdalila@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <summary onclick="toggleExpand(this)">📄 شروط الاستخدام</summary>
+    <div hidden>
+      <p>هذا الموقع لا يتحمل مسؤولية استخدام DNS أو السكريبتات لأغراض مخالفة. الخدمة مجانية ومفتوحة.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <summary onclick="toggleExpand(this)">🔒 سياسة الخصوصية</summary>
+    <div hidden>
+      <p>لا نجمع أي معلومات شخصية من المستخدمين، ولا نستعمل أي تتبع أو ملفات تعريف الارتباط.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <summary onclick="toggleExpand(this)">ℹ️ من نحن</summary>
+    <div hidden>
+      <p>هذا الموقع لا يزال قيد التطوير، ونحن نرحب بجميع الاقتراحات لتحسينه أكثر.</p>
+    </div>
+  </div>
+
+  <button onclick="scrollToTop()" class="top-btn">🔝 للأعلى</button>
+  <button onclick="toggleDarkMode()" style="position:fixed; bottom:20px; right:20px;">🌙 الوضع الليلي</button>
+
   <footer>
-    © 2025 جميع الحقوق محفوظة - موقع حجب الإعلانات
+    جميع الحقوق محفوظة © 2025
   </footer>
 
-  <!-- ⬆️ زر الرجوع للأعلى -->
-  <button class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function toggleLanguage() {
+      alert("🚧 ميزة تغيير اللغة قيد التطوير حالياً.");
+    }
+
+    function toggleExpand(el) {
+      const next = el.nextElementSibling;
+      if (next.hidden) {
+        next.hidden = false;
+      } else {
+        next.hidden = true;
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
