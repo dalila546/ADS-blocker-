@@ -1,207 +1,182 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>موقع حجب الإعلانات</title>
   <style>
     :root {
       --main-bg: #f5f5dc;
-      --text-color: #222;
       --accent: #d2b48c;
-      --light-bg: #ffffff;
-    }
+      --text-color: #333;
+      --highlight: #ffbf00;
+    }body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--main-bg);
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: var(--main-bg);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-    }
+header {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: var(--accent);
+  color: white;
+}
 
-    header {
-      background-color: var(--accent);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
+h1, h2, h3 {
+  color: #4b3b2a;
+}
 
-    section {
-      padding: 20px;
-      margin: 20px;
-      background: var(--light-bg);
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+section {
+  padding: 20px;
+  margin: 10px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-    h2 {
-      color: #4b3b2a;
-    }
+details {
+  margin: 10px 0;
+  background-color: #fef6e4;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
 
-    details {
-      background-color: #fff8dc;
-      margin-bottom: 10px;
-      padding: 10px 15px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+details summary {
+  font-weight: bold;
+}
 
-    details summary {
-      font-weight: bold;
-      cursor: pointer;
-    }
+pre {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #eee;
-      font-weight: bold;
-    }
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  background-color: #eee;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
 
-    button {
-      background-color: #8b5e3c;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+footer a {
+  color: #8b5e3c;
+  text-decoration: none;
+}
 
-    .floating-btn {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #8b5e3c;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 999;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
+#bottom-note {
+  text-align: center;
+  background: #f0f0f0;
+  padding: 10px;
+  font-size: 13px;
+}
+
+button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: var(--highlight);
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #8b5e3c;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
   </style>
 </head>
-<body>
-
-  <header>
-    <h1>🚫 مرحباً بك في موقع حجب الإعلانات</h1>
-    <p>جرب التصفح بدون إعلانات مزعجة وبكل أمان وخصوصية.</p>
-  </header>
-
-  <section id="faq">
+<body>  <header>
+    <h1>👋 مرحباً بك في موقع حجب الإعلانات</h1>
+    <p>استمتع بتصفح خالٍ من الإعلانات المزعجة وسريع وآمن 💻</p>
+  </header>  <section id="faq">
     <h2>❓ الأسئلة الشائعة</h2>
-    <details><summary>ما هو DNS؟</summary><p>نظام أسماء النطاقات يُترجم أسماء المواقع إلى عناوين IP.</p></details>
-    <details><summary>لماذا نستخدمه؟</summary><p>لحماية الخصوصية وتسريع التصفح ومنع الإعلانات.</p></details>
-    <details><summary>أين أضعه؟</summary><p>من إعدادات الشبكة في الهاتف أو الحاسوب.</p></details>
-    <details><summary>ما هو سكريبت الحظر؟</summary><p>كود يمنع ظهور الإعلانات داخل الصفحات.</p></details>
-    <details><summary>كيف أستخدمه على الهاتف؟</summary><p>عبر DNS أو متصفح به إضافة حظر مثل Firefox.</p></details>
-    <details><summary>هل الموقع مجاني؟</summary><p>نعم، 100% مجاني وبدون تسجيل.</p></details>
-    <details><summary>نصائح الاستخدام</summary><p>استخدم DNS موثوق وفعل الحجب في جميع أجهزتك.</p></details>
-    <details><summary>مميزات الموقع</summary><p>سهل، مجاني، سريع، بدون تطبيقات، يعمل على كل الأجهزة.</p></details>
-  </section>
+    <details><summary>🔍 ما هو DNS؟</summary><p>نظام يترجم أسماء المواقع إلى أرقام يفهمها الجهاز.</p></details>
+    <details><summary>💡 لماذا نستخدم DNS مخصص؟</summary><p>لزيادة الخصوصية، حجب الإعلانات، وتسريع التصفح.</p></details>
+    <details><summary>📍 أين أضع DNS؟</summary><p>من إعدادات الشبكة في الهاتف أو الحاسوب.</p></details>
+    <details><summary>🚫 ما هو سكريبت الحظر؟</summary><p>كود برمجي لمنع ظهور الإعلانات أثناء التصفح.</p></details>
+    <details><summary>📱 كيف أستخدمه على الهاتف؟</summary><p>عبر تغيير DNS أو استخدام متصفح يدعم الحجب مثل Brave.</p></details>
+    <details><summary>💰 هل الموقع مجاني؟</summary><p>نعم، الموقع مجاني 100% بدون تسجيل.</p></details>
+    <details><summary>🧠 نصائح الاستخدام</summary><p>استخدم DNS آمن، وفعّل الحجب على جميع الأجهزة.</p></details>
+    <details><summary>🌟 مميزات الموقع</summary><p>سهل، مجاني، سريع، يدعم جميع الأجهزة، ويعمل بدون تطبيقات.</p></details>
+  </section>  <section id="dns-script">
+    <h2>📡 شرح DNS وسكريبت الحظر</h2>
+    <p>DNS هو نظام يربط اسم الموقع بعنوان IP. باستخدام DNS مخصص، يمكن حجب الإعلانات وتحسين الأمان.</p>
+    <p>سكريبت الحظر هو كود يعمل في المتصفح لإخفاء الإعلانات تلقائيًا.</p><h3>📱 على الهاتف</h3>
+<p><strong>Android 9+:</strong> إعدادات → شبكة وإنترنت → DNS خاص → <code>dns.adguard.com</code></p>
+<p><strong>Android أقدم:</strong> Wi-Fi → تعديل → IP Static → DNS 1 وDNS 2</p>
+<p>للحجب الكامل، حمّل متصفح Kiwi وثبّت uBlock Origin ثم أدخل الكود التالي:</p>
+<pre>##.ad, ##iframe[src*="ads"], ##[id*="ad"]</pre>
 
-  <section id="dns-script">
-    <h2>🛠️ إعداد DNS وسكريبت الحظر</h2>
-    <details open><summary>📱 على الهاتف</summary>
-      <p><strong>1. تغيير DNS (Android 9+):</strong></p>
-      <ul>
-        <li>الإعدادات → الشبكة والإنترنت → DNS خاص</li>
-        <li>أدخل: <code>dns.adguard.com</code></li>
-      </ul>
-      <p><strong>2. سكريبت الحظر:</strong></p>
-      <ul>
-        <li>ثبّت متصفح Kiwi أو Firefox</li>
-        <li>ثبّت uBlock Origin وألصق الكود التالي:</li>
-      </ul>
-      <pre>##.ad, ##iframe[src*="ads"], ##[id*="ad"]</pre>
-    </details>
+<h3>💻 على الحاسوب</h3>
+<p>لوحة التحكم → الشبكة → IPv4 → استخدم DNS التالي:</p>
+<pre>94.140.14.14
 
-    <details><summary>💻 على الحاسوب</summary>
-      <p><strong>1. تغيير DNS (Windows):</strong></p>
-      <ul>
-        <li>لوحة التحكم → مركز الشبكة → خصائص الشبكة</li>
-        <li>TCP/IPv4 → خصائص → أدخل:
-          <br>DNS 1: 94.140.14.14
-          <br>DNS 2: 94.140.15.15</li>
-      </ul>
-      <p><strong>2. سكريبت الحظر:</strong></p>
-      <ul>
-        <li>ثبّت uBlock Origin على Chrome/Firefox</li>
-        <li>الإعدادات → My Filters → ألصق الكود:</li>
-      </ul>
-      <pre>
-document.addEventListener('DOMContentLoaded', function () {
-  const adSelectors = ['iframe[src*="ads"]', '[class*="ad"]', '[id*="ad"]'];
-  adSelectors.forEach(selector => {
-    document.querySelectorAll(selector).forEach(el => el.remove());
-  });
-});
-      </pre>
-    </details>
-  </section>
+94.140.15.15</pre> <p>ثم ثبّت uBlock وأضف الكود التالي في My Filters:</p> <pre>document.addEventListener('DOMContentLoaded', function () { const adSelectors = ['iframe[src*="ads"]', '[class*="ad"]', '[id*="ad"]']; adSelectors.forEach(selector => { document.querySelectorAll(selector).forEach(el => el.remove()); }); });</pre>
 
-  <section>
-    <h2>🧪 اختبار حجب الإعلانات</h2>
-    <p>اضغط على الزر للتأكد من أن الحجب يعمل:</p>
-    <button onclick="window.open('https://ads-block-test.com', '_blank')">اختبر الآن</button>
-  </section>
-
-  <section>
+  </section>  <section id="test">
+    <h2>🧪 اختبار الحجب</h2>
+    <p>اضغط الزر أدناه لمعرفة ما إذا كانت الإعلانات لا تزال تظهر:</p>
+    <button onclick="window.open('https://ads-block-test.com', '_blank')">🔍 اختبر الآن</button>
+  </section>  <section>
     <h2>💬 آراء المستخدمين</h2>
-    <details><summary>عرض الآراء</summary>
-      <p>“موقع رائع، لم أعد أرى أي إعلان!” – سارة</p>
-      <p>“تصفح أسرع وأكثر راحة.” – ياسين</p>
-    </details>
-  </section>
-
-  <section>
-    <h2>📊 إحصائيات الموقع</h2>
-    <details><summary>عرض التفاصيل</summary>
-      <p>عدد الزوار: <strong>12,485</strong></p>
-      <p>إعلانات محجوبة: <strong>3,000,000+</strong></p>
-      <p>دول مستخدمة: <strong>+47</strong></p>
-    </details>
-  </section>
-
-  <section>
-    <details><summary>📃 شروط الاستخدام</summary>
-      <ul>
-        <li>لا يُسمح باستخدام الموقع لأغراض ضارة.</li>
-        <li>لا يتم جمع بيانات المستخدمين.</li>
-      </ul>
-    </details>
-  </section>
-
-  <section>
-    <details><summary>📩 تواصل معنا</summary>
-      <form action="mailto:zelbahdalila@gmail.com" method="POST" enctype="text/plain">
-        <label>الاسم:</label><br>
-        <input type="text" name="name" required style="width:100%"><br>
-        <label>البريد الإلكتروني:</label><br>
-        <input type="email" name="email" required style="width:100%"><br>
-        <label>رسالتك:</label><br>
-        <textarea name="message" rows="4" required style="width:100%"></textarea><br>
-        <button type="submit">📨 إرسال</button>
-      </form>
-    </details>
-  </section>
-
-  <section>
-    <details><summary>👥 من نحن</summary>
-      <p>
-        نحن فريق يهتم بتقديم حلول لحجب الإعلانات بطريقة بسيطة وآمنة.<br>
-        موقعنا لا يزال في طور التطوير ونتقبل أي نصيحة لتحسينه.
-      </p>
-    </details>
-  </section>
-
-  <button class="floating-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
-
-  <footer>
-    © 2025 جميع الحقوق محفوظة - موقع حجب الإعلانات
-  </footer>
+    <blockquote>“راحة كبيرة في التصفح” – سارة</blockquote>
+    <blockquote>“الإنترنت أصبح أسرع بكثير” – ياسين</blockquote>
+  </section>  <section>
+    <h2>📊 إحصائيات</h2>
+    <p>📅 الزوار: <strong>12,000+</strong></p>
+    <p>🛑 الإعلانات المحجوبة: <strong>3 ملايين+</strong></p>
+    <p>🌍 دول: <strong>+47</strong></p>
+  </section>  <footer>
+    <a href="#about">👥 من نحن</a>
+    <a href="#contact">📩 تواصل معنا</a>
+    <a href="#privacy">🔒 سياسة الخصوصية</a>
+    <a href="#terms">📃 شروط الاستخدام</a>
+  </footer>  <section id="about" style="padding:10px 20px;font-size:14px;">
+    <p>موقعنا لا يزال في طور التنشئة ونتقبل أي انتقاد أو اقتراح لتطويره.</p>
+  </section>  <section id="contact" style="padding:10px 20px;font-size:14px;">
+    <form action="mailto:zelbahdalila@gmail.com" method="POST" enctype="text/plain">
+      <label>الاسم:</label><br>
+      <input type="text" name="name" required style="width:100%"><br>
+      <label>البريد الإلكتروني:</label><br>
+      <input type="email" name="email" required style="width:100%"><br>
+      <label>رسالتك:</label><br>
+      <textarea name="message" rows="4" required style="width:100%"></textarea><br>
+      <button type="submit">📨 إرسال</button>
+    </form>
+  </section>  <section id="privacy" style="padding:10px 20px;font-size:14px;">
+    <h3>سياسة الخصوصية</h3>
+    <p>لا نجمع أي معلومات شخصية. استخدام الموقع آمن، وجميع العمليات تتم في جهازك فقط.</p>
+  </section>  <section id="terms" style="padding:10px 20px;font-size:14px;">
+    <h3>شروط الاستخدام</h3>
+    <ul>
+      <li>لا تستخدم الموقع لأغراض غير قانونية.</li>
+      <li>لا تعيد نشر المحتوى دون إذن.</li>
+      <li>قد نقوم بتحديث الشروط دون إشعار مسبق.</li>
+    </ul>
+  </section>  <div id="bottom-note">© 2025 جميع الحقوق محفوظة - موقع حجب الإعلانات</div><button class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
 
 </body>
 </html>
