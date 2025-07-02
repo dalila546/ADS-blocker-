@@ -1,15 +1,16 @@
-
 <!DOCTYPE html>
-<html lang='ar'>
+<html lang="ar">
 <head>
-<meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>من نحن</title>
-<link rel='stylesheet' href='style.css'>
-<script src='script.js'></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حول الموقع</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
 </head>
 <body>
-<div style="display: flex; justify-content: space-between; align-items: center;">
+
+<!-- شريط علوي فيه الوضع الليلي وتغيير اللغة -->
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
   <button onclick="toggleDarkMode()">🌓 تبديل الوضع</button>
   <select onchange="changeLang(this)">
     <option value="ar">العربية</option>
@@ -17,6 +18,40 @@
     <option value="en">English</option>
   </select>
 </div>
-<h1>من نحن</h1><p>موقعنا لا يزال قيد التطوير ونتقبل كل الاقتراحات لتحسينه.</p><a href='index.html'>العودة للرئيسية</a>
-<footer><p>© جميع الحقوق محفوظة</p></footer>
-</body></html>
+
+<!-- حول الموقع -->
+<section>
+  <h1>حول الموقع</h1>
+  <p>هذا الموقع صُمم خصيصًا لمساعدتك على التخلص من الإعلانات المزعجة بسهولة، سواء من خلال تغيير DNS أو استعمال سكريبتات خاصة.</p>
+  <p>هدفنا أن نوفر لك تجربة تصفح نظيفة وخفيفة بدون تشويش ولا إعلانات مفاجئة.</p>
+  <p><strong>ملاحظة:</strong> الموقع لا يزال في طور التطوير، ونرحب بأي اقتراح لتحسينه 🙏</p>
+</section>
+
+<hr />
+
+<!-- من نحن -->
+<section>
+  <h2>👥 من نحن</h2>
+  <p>نحن فريق صغير نحب البرمجة والخصوصية ونؤمن بأن الإنترنت يجب أن يكون آمن ومريح للجميع.</p>
+  <p>لا ننتمي لأي شركة أو جهة تجارية، وكل المحتوى هنا مجاني ومفتوح للجميع ❤️</p>
+</section>
+
+<hr />
+
+<!-- تواصل معنا -->
+<section>
+  <h2>📬 تواصل معنا</h2>
+  <p>عندك ملاحظة أو اقتراح أو حتى خطأ لاحظته؟ راسلينا بكل حب!</p>
+  <p>📧 البريد الإلكتروني: <a href="mailto:zelbahdalila@gmail.com">zelbahdalila@gmail.com</a></p>
+</section>
+
+<!-- رجوع للرئيسية -->
+<p><a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a></p>
+
+<!-- تذييل -->
+<footer style="text-align: center; padding: 10px;">
+  <p>© جميع الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>
