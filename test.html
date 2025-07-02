@@ -1,22 +1,39 @@
-
 <!DOCTYPE html>
-<html lang='ar'>
+<html lang="ar">
 <head>
-<meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>اختبار الحجب</title>
-<link rel='stylesheet' href='style.css'>
-<script src='script.js'></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبار حجب الإعلانات</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
 <body>
-<div style="display: flex; justify-content: space-between; align-items: center;">
-  <button onclick="toggleDarkMode()">🌓 تبديل الوضع</button>
-  <select onchange="changeLang(this)">
-    <option value="ar">العربية</option>
-    <option value="fr">Français</option>
-    <option value="en">English</option>
-  </select>
-</div>
-<h1>اختبر هل الحجب يعمل</h1><button onclick="alert('جاري اختبار الحجب...')">اختبر الآن</button><p>يمكنك تحميل السكريبت: <a href='blocker.js' download>تحميل السكريبت</a></p><a href='index.html'>العودة للرئيسية</a>
-<footer><p>© جميع الحقوق محفوظة</p></footer>
-</body></html>
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+    <button onclick="toggleDarkMode()">🌓 تبديل الوضع</button>
+    <select onchange="changeLang(this)">
+      <option value="ar">العربية</option>
+      <option value="fr">Français</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+
+  <h1>🧪 اختبار حجب الإعلانات</h1>
+
+  <p>إذا لم ترَ الإعلان الأحمر أسفل، فالحجب يعمل بشكل جيد ✅</p>
+
+  <!-- هذا هو الإعلان الافتراضي للاختبار -->
+  <div id="ad-test" style="background-color: #ffdddd; padding: 20px; margin: 20px; border: 2px dashed red;">
+    📢 إعلان تجريبي: إذا كنت تقرأ هذا، فالحجب غير فعّال ❌
+  </div>
+
+  <button onclick="alert('جاري اختبار الحجب...')">اختبر الآن</button>
+
+  <p>يمكنك تحميل السكريبت: <a href="blocker.js" download>تحميل السكريبت</a></p>
+
+  <a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a>
+
+  <footer style="text-align: center; padding: 10px;">
+    <p>© جميع الحقوق محفوظة</p>
+  </footer>
+</body>
+</html>
