@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 <html lang='ar'>
 <head>
-<meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>الرئيسية</title>
-<link rel='stylesheet' href='style.css'>
-<script src='script.js'></script>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>الرئيسية</title>
+  <link rel='stylesheet' href='style.css'>
+  <script src='script.js'></script>
 </head>
 <body>
-<div style="display: flex; justify-content: space-between; align-items: center;">
+
+<div style="display: flex; justify-content: space-between; align-items: center; padding:10px;">
   <button onclick="toggleDarkMode()">🌓 تبديل الوضع</button>
   <select onchange="changeLang(this)">
     <option value="ar">العربية</option>
@@ -17,8 +17,27 @@
     <option value="en">English</option>
   </select>
 </div>
-  <a href="howto.html" class="button">📵 كيف تحجب الإعلانات؟</a>
-  <a href="apps-block.html">📲 حجب الإعلانات من التطبيقات</a>
-<h1>مرحبا بك في موقع حجب الإعلانات</h1><p>احمِ تجربتك على الإنترنت من الإعلانات المزعجة بسهولة.</p><a href='dns.html'>ما هو DNS؟</a> | <a href='script.html'>سكريبت الحظر</a> | <a href='faq.html'>الأسئلة الشائعة</a> | <a href='test.html'>اختبار الحجب</a> | <a href='contact.html'>تواصل معنا</a> | <a href='about.html'>من نحن</a>
-<footer><p>© جميع الحقوق محفوظة</p></footer>
-</body></html>
+
+<h1>مرحبا بك في موقع حجب الإعلانات</h1>
+<p>احمِ تجربتك على الإنترنت من الإعلانات المزعجة بسهولة 💡</p>
+
+<a href="howto.html" class="button">📵 كيف تحجب الإعلانات؟</a>
+
+<hr>
+
+<nav style="line-height: 2;">
+  <a href='dns.html'>🌐 ما هو DNS؟</a> |
+  <a href='script.html'>🧩 سكريبت الحظر</a> |
+  <a href='faq.html'>❓ الأسئلة الشائعة</a> |
+  <a href='apps-block.html'>📲 حجب الإعلانات من التطبيقات</a> |
+  <a href='test.html'>🧪 اختبار الحجب</a> |
+  <a href='contact.html'>📩 تواصل معنا</a> |
+  <a href='about.html'>👤 من نحن</a>
+</nav>
+
+<footer style="text-align:center; margin-top: 50px;">
+  <p>© جميع الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>
