@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang='ar'>
+<html lang="ar">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>سكريبت الحظر</title>
-  <link rel='stylesheet' href='style.css'>
-  <script src='script.js'></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>سكريبت الحظر الذكي</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -18,43 +18,112 @@
   </select>
 </div>
 
-<h1>ما هو سكريبت الحظر؟</h1>
-<p>سكريبت الحظر هو كود صغير يمنع الإعلانات تلقائيًا قبل ما تظهر لك، وتقدر تستخدمه بسهولة على الهاتف أو الحاسوب.</p>
+<h1>📜 سكريبت الحظر الذكي للإعلانات</h1>
+<p>هذا السكريبت يُستخدم مع إضافة <strong>Tampermonkey</strong> لحجب الإعلانات تلقائيًا من أغلب المواقع بطريقة ذكية.</p>
 
 <h2>📱 على الهاتف (أندرويد):</h2>
 <ol>
-  <li>حمّل متصفح <b>Kiwi Browser</b> من Play Store.</li>
-  <li>افتحه وادخل إلى موقع Tampermonkey (من متجر الإضافات).</li>
-  <li>ثبّت إضافة <b>Tampermonkey</b>.</li>
-  <li>افتح الإضافة، ثم اضغط "Create new script".</li>
-  <li>انسخ الكود الموجود أسفل والصقيه.</li>
-  <li>اضغطي "حفظ".</li>
+  <li>حمّل متصفح <strong>Kiwi Browser</strong> من Play Store.</li>
+  <li>افتحه وادخل إلى <a href="https://tampermonkey.net" target="_blank">Tampermonkey</a>.</li>
+  <li>ثبّت Tampermonkey.</li>
+  <li>افتح الإضافة، ثم اضغط "Create a new script".</li>
+  <li>انسخ الكود الموجود أسفل والصقه هناك.</li>
+  <li>اضغط "✔ Save".</li>
 </ol>
 
 <h2>💻 على الحاسوب:</h2>
 <ol>
-  <li>افتح Google Chrome أو Firefox.</li>
-  <li>ثبّت إضافة <b>Tampermonkey</b>.</li>
-  <li>من الإضافة، اضغطي "إضافة سكريبت جديد".</li>
-  <li>انسخي الكود التالي:</li>
+  <li>ثبّت إضافة <strong>Tampermonkey</strong> من <a href="https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank">Chrome Web Store</a>.</li>
+  <li>من الإضافة، اضغط "Create a new script".</li>
+  <li>الصق الكود التالي:</li>
 </ol>
 
-<pre><code>
+<!-- زر نسخ -->
+<div>
+  <button onclick="copyScript()" style="padding: 10px 20px; border-radius: 8px; background-color: #4caf50; color: white; border: none; cursor: pointer;">📋 نسخ السكريبت</button>
+</div>
+
+<!-- الكود -->
+<pre><code id="adScript">
 // ==UserScript==
-// @name         Ad Blocker Simple Script
+// @name         Smart Ad Blocker
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  حظر الإعلانات تلقائيًا من كل المواقع بذكاء
 // @match        *://*/*
 // @run-at       document-start
+// @grant        none
 // ==/UserScript==
-document.addEventListener('DOMContentLoaded', function () {
-  const ads = document.querySelectorAll('[id^="ad"], .ads, .ad-banner');
-  ads.forEach(ad => ad.remove());
-});
-</code></pre>
 
-<p>بعد الحفظ، الإعلانات راح تختفي تلقائيًا من معظم المواقع 🌟</p>
+(function() {
+  'use strict';
+
+  const adSelectors = [
+    '[id*="ad"]',
+    '[class*="ad"]',
+    '[class*="ads"]',
+    '[class*="banner"]',
+    '[class*="sponsor"]',
+    '[id*="sponsor"]',
+    '[class*="promo"]',
+    'iframe[src*="ads"]',
+    'iframe[src*="doubleclick"]',
+    'script[src*="ads"]',
+    'div[data-google-query-id]',
+    'ins.adsbygoogle'
+  ];
+
+  const removeAds = () => {
+    document.querySelectorAll(adSelectors.join(',')).forEach(el => el.remove());
+  };
+
+  removeAds();
+
+  const observer = new MutationObserver(() => removeAds());
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+})();
+</code></pre>
 
 <a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a>
 
-<footer><p>© جميع الحقوق محفوظة</p></footer>
+<footer>
+  <p>© جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+}
+
+function changeLang(select) {
+  const lang = select.value;
+  if (lang === "ar") {
+    location.reload();
+  } else {
+    alert("عذرًا، هذه اللغة غير متوفرة حالياً.");
+    select.value = "ar";
+  }
+}
+
+// نسخ السكريبت
+function copyScript() {
+  const scriptText = document.getElementById("adScript").innerText;
+  navigator.clipboard.writeText(scriptText).then(() => {
+    alert("✅ تم نسخ السكريبت بنجاح!");
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark-mode");
+  }
+});
+</script>
+
 </body>
 </html>
