@@ -3,13 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>حجب الإعلانات من التطبيقات</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <title>الرئيسية</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8f2e9;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    h1, h2 {
+      color: #6b4f3b;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    button, select {
+      padding: 8px 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #6b4f3b;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #8c6d52;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    body.dark-mode a {
+      color: #aad;
+    }
+
+    body.dark-mode footer {
+      background-color: #1e1e1e;
+      color: #ccc;
+    }
+
+    /* زر المشاركة */
+    .share-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; justify-content: space-between; align-items: center; padding:10px;">
   <button onclick="toggleDarkMode()">🌓 تبديل الوضع</button>
   <select onchange="changeLang(this)">
     <option value="ar">العربية</option>
@@ -18,25 +89,69 @@
   </select>
 </div>
 
-<h1>📲 حجب الإعلانات من التطبيقات</h1>
+<h1>📴 مرحبا بك في موقع حجب الإعلانات</h1>
+<p>احمِ تجربتك على الإنترنت من الإعلانات المزعجة بسهولة 💡</p>
 
-<p>إذا كنت تستعمل تطبيقات مثل الألعاب أو تطبيقات مشاهدة الفيديوهات وتزعجك الإعلانات، تقدر تستعمل تطبيق خارجي اسمه <strong>Blokada</strong>.</p>
+<hr>
 
-<h2>طريقة الاستخدام:</h2>
-<ol>
-  <li>حمّل تطبيق <strong>Blokada</strong> من موقعه الرسمي أو من الرابط التالي:</li>
-  <li><a href="https://blokada.org" target="_blank">🔗 https://blokada.org</a></li>
-  <li>بعد التثبيت، افتح التطبيق وفعّل خاصية حجب الإعلانات.</li>
-  <li>سيقوم Blokada بحجب الإعلانات من التطبيقات مثل Block Blast وغيرها تلقائيًا.</li>
-</ol>
+<div style="text-align: right; padding: 0 20px;">
+  <a href="dns.html">🌐 ما هو DNS؟</a>
+  <a href="faq.html">❓ الأسئلة الشائعة</a>
+  <a href="howto.html">🛡️ كيف تحجب الإعلانات؟</a>
+  <a href="apps-block.html">📲 حجب الإعلانات من التطبيقات</a>
+  <a href="test.html">🧪 اختبار الحجب</a>
+</div>
 
-<p><strong>ملاحظة:</strong> التطبيق يعمل عبر VPN محلي لحجب الإعلانات بدون الحاجة لصلاحيات الروت.</p>
-
-<a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a>
+<!-- ✅ زر المشاركة -->
+<div style="text-align: center;">
+  <button class="share-btn" onclick="shareSite()">📤 شارك الموقع مع أصدقائك</button>
+</div>
 
 <footer>
   <p>© جميع الحقوق محفوظة</p>
+  <p>
+    <a href="about.html">👤 من نحن</a> |
+    <a href="contact.html">📩 تواصل معنا</a>
+  </p>
 </footer>
+
+<!-- ✅ سكريبت الوضع الليلي + تغيير اللغة + زر المشاركة -->
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+  }
+
+  function changeLang(select) {
+    const lang = select.value;
+    if (lang === "ar") {
+      location.reload();
+    } else {
+      alert("عذرًا، هذه اللغة غير متوفرة حاليًا.");
+      select.value = "ar";
+    }
+  }
+
+  function shareSite() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'موقع حجب الإعلانات',
+        text: 'أنصحك بزيارة هذا الموقع لحجب الإعلانات المزعجة بسهولة:',
+        url: window.location.href
+      })
+      .then(() => console.log('✅ تمت المشاركة'))
+      .catch((error) => console.log('❌ فشل المشاركة:', error));
+    } else {
+      alert("المتصفح لا يدعم زر المشاركة 🙁");
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem("darkMode") === "true") {
+      document.body.classList.add("dark-mode");
+    }
+  });
+</script>
 
 </body>
 </html>
