@@ -22,36 +22,62 @@
 
 <hr />
 
-<h2>📱 الطريقة 1: عبر الهاتف (Kiwi + Tampermonkey)</h2>
+<h2>📱 الطريقة 1: على الهاتف (Kiwi + Tampermonkey)</h2>
 <ol>
-  <li>حمّل <b>Kiwi Browser</b> من Play Store.</li>
-  <img src="kiwi.png" alt="متصفح Kiwi" width="300">
-  <li>افتحه وروّح لـ Tampermonkey.</li>
-  <img src="tampermonkey-dashboard.png" alt="واجهة Tampermonkey" width="300">
-  <li>أنشئ سكريبت جديد، وألصق الكود التالي:</li>
+  <li>حمّل تطبيق <b>Kiwi Browser</b> من متجر Play Store.</li>
+  <li>افتحه واضغط على الثلاث نقاط (⋮)، ثم اختر "الإضافات" (Extensions).</li>
+  <li>ادخل إلى <a href="https://tampermonkey.net/?ext=dhdg&browser=chrome" target="_blank">موقع Tampermonkey</a> وثبّت الإضافة.</li>
+  <li>افتح Tampermonkey ثم اضغط "Create a new script".</li>
+  <li>امسح الكود الموجود، وألصق هذا الكود:</li>
 </ol>
+
 <pre><code>
 // ==UserScript==
-// @name         Ad Blocker
+// @name         Ad Blocker Simple Script
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  يحجب الإعلانات تلقائياً
 // @match        *://*/*
 // @run-at       document-start
 // ==/UserScript==
+
 document.addEventListener('DOMContentLoaded', function () {
   const ads = document.querySelectorAll('[id^="ad"], .ads, .ad-banner');
   ads.forEach(ad => ad.remove());
 });
 </code></pre>
 
-<hr />
-
-<h2>🌐 الطريقة 2: باستخدام DNS بدون إضافات</h2>
-<ol>
-  <li>ادخل إلى إعدادات هاتفك > DNS خاص.</li>
-  <li>اكتب: <code>dns.adguard.com</code></li>
-  <img src="dns-adguard.png" alt="إعدادات DNS" width="300">
+<ol start="6">
+  <li>اضغط "Save". مبروك، الإعلانات راح تتحجب تلقائيًا! ✅</li>
 </ol>
 
-<p><b>ملاحظة:</b> هذه الطريقة تمنع الإعلانات في كل التطبيقات والمواقع.</p>
+<hr />
+
+<h2>💻 الطريقة 2: على الحاسوب (Chrome أو Firefox)</h2>
+<ol>
+  <li>ثبّت إضافة <b>Tampermonkey</b> من الموقع: <a href="https://tampermonkey.net" target="_blank">tampermonkey.net</a></li>
+  <li>بعد التثبيت، افتح هذا الرابط:  
+    <a href="https://greasyfork.org/scripts/495394-ad-blocker-simple-script/code" target="_blank">سكريبت الحظر الجاهز</a></li>
+  <li>اضغط على زر "Install".</li>
+  <li>مبروك! تم حجب الإعلانات ✔️</li>
+</ol>
+
+<hr />
+
+<h2>🌐 الطريقة 3: استخدام DNS لحجب الإعلانات</h2>
+<p>بدون إضافات أو تطبيقات، يمكن تغيير DNS من إعدادات الجهاز:</p>
+
+<h3>📱 على الهاتف (أندرويد):</h3>
+<ol>
+  <li>ادخل إلى الإعدادات > الشبكة والإنترنت > DNS خاص.</li>
+  <li>اختَر "اسم مزوّد DNS الخاص".</li>
+  <li>اكتب: <code>dns.adguard.com</code></li>
+  <li>اضغط "حفظ".</li>
+</ol>
+
+<p>💡 هذه الطريقة تمنع الإعلانات من جميع التطبيقات والمواقع.</p>
+
+<hr />
 
 <p><a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a></p>
 
