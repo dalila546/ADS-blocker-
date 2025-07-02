@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حجب الإعلانات من التطبيقات</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <button onclick="toggleDarkMode()">🌓 تبديل الوضع</button>
+  <select onchange="changeLang(this)">
+    <option value="ar">العربية</option>
+    <option value="fr">Français</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
+<h1>📲 حجب الإعلانات من التطبيقات</h1>
+
+<p>إذا كانت تظهر لك إعلانات مزعجة داخل التطبيقات مثل الألعاب، يمكنك استخدام تطبيق خارجي لحجبها بسهولة.</p>
+
+<h2>تطبيق موصى به: <strong>Blokada</strong></h2>
+<ol>
+  <li>حمّل تطبيق <strong>Blokada</strong> من الرابط التالي:</li>
+  <li><a href="https://blokada.org" target="_blank">🔗 https://blokada.org</a></li>
+  <li>افتح التطبيق وفعّل ميزة حجب الإعلانات.</li>
+  <li>سيقوم التطبيق بحجب الإعلانات من أغلب التطبيقات تلقائيًا.</li>
+</ol>
+
+<p><strong>ملاحظة:</strong> يعمل التطبيق باستخدام VPN محلي، لا يحتاج صلاحيات الروت.</p>
+
+<!-- زر مشاركة -->
+<div style="text-align: center;">
+  <button onclick="shareSite()" style="padding: 10px 20px; border-radius: 8px; background-color: #4caf50; color: white; border: none; cursor: pointer;">
+    📤 شارك الصفحة مع أصدقائك
+  </button>
+</div>
+
+<a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a>
+
+<footer>
+  <p>© جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+  }
+
+  function changeLang(select) {
+    const lang = select.value;
+    if (lang === "ar") {
+      location.reload();
+    } else {
+      alert("عذرًا، هذه اللغة غير متوفرة حاليًا.");
+      select.value = "ar";
+    }
+  }
+
+  function shareSite() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'حجب الإعلانات من التطبيقات',
+        text: 'جرب هذا الشرح لحجب الإعلانات من تطبيقات الهاتف 👇',
+        url: window.location.href
+      });
+    } else {
+      alert("خاصية المشاركة غير مدعومة في هذا المتصفح.");
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem("darkMode") === "true") {
+      document.body.classList.add("dark-mode");
+    }
+  });
+</script>
+
+</body>
+</html>
