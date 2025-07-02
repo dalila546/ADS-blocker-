@@ -5,7 +5,7 @@ function toggleDarkMode() {
 
 function changeLang(select) {
   const lang = select.value;
-  window.location.href = lang + ".html"; // تأكدي أن عندك ملفات en.html / fr.html / ar.html
+  window.location.href = lang + ".html";
 }
 
 // تشغيل الوضع الليلي تلقائيًا إذا كان مفعل من قبل
