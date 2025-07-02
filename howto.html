@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>كيف تحجب الإعلانات؟</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+<body>
+
+<div style="display: flex; justify-content: space-between; align-items: center; padding:10px;">
+  <button onclick="toggleDarkMode()">🌓 تبديل الوضع</button>
+  <select onchange="changeLang(this)">
+    <option value="ar">العربية</option>
+    <option value="fr">Français</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
+<h1>📵 كيف تحجب الإعلانات من هاتفك أو حاسوبك؟</h1>
+
+<hr />
+
+<h2>📱 الطريقة 1: عبر الهاتف (Kiwi + Tampermonkey)</h2>
+<ol>
+  <li>حمّل <b>Kiwi Browser</b> من Play Store.</li>
+  <img src="kiwi.png" alt="متصفح Kiwi" width="300">
+  <li>افتحه وروّح لـ Tampermonkey.</li>
+  <img src="tampermonkey-dashboard.png" alt="واجهة Tampermonkey" width="300">
+  <li>أنشئ سكريبت جديد، وألصق الكود التالي:</li>
+</ol>
+<pre><code>
+// ==UserScript==
+// @name         Ad Blocker
+// @match        *://*/*
+// @run-at       document-start
+// ==/UserScript==
+document.addEventListener('DOMContentLoaded', function () {
+  const ads = document.querySelectorAll('[id^="ad"], .ads, .ad-banner');
+  ads.forEach(ad => ad.remove());
+});
+</code></pre>
+
+<hr />
+
+<h2>🌐 الطريقة 2: باستخدام DNS بدون إضافات</h2>
+<ol>
+  <li>ادخل إلى إعدادات هاتفك > DNS خاص.</li>
+  <li>اكتب: <code>dns.adguard.com</code></li>
+  <img src="dns-adguard.png" alt="إعدادات DNS" width="300">
+</ol>
+
+<p><b>ملاحظة:</b> هذه الطريقة تمنع الإعلانات في كل التطبيقات والمواقع.</p>
+
+<p><a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a></p>
+
+<footer style="text-align:center;padding:10px;"><p>© جميع الحقوق محفوظة</p></footer>
+
+</body>
+</html>
