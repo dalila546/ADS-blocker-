@@ -8,7 +8,42 @@
 <link rel='stylesheet' href='style.css'>
 <script src='script.js'></script>
 </head>
-<body>
+<body> <h1>ما هو سكريبت الحظر؟</h1>
+<p>سكريبت الحظر هو كود صغير يمنع الإعلانات تلقائيًا قبل ما تظهر لك، وتقدر تستخدمه بسهولة على الهاتف أو الحاسوب.</p>
+
+<h2>📱 على الهاتف (أندرويد):</h2>
+<ol>
+  <li>حمّل متصفح <b>Kiwi Browser</b> من Play Store.</li>
+  <li>افتحه وادخل إلى موقع Tampermonkey (من متجر الإضافات).</li>
+  <li>ثبّت إضافة <b>Tampermonkey</b>.</li>
+  <li>افتح الإضافة، ثم اضغط "Create new script".</li>
+  <li>انسخ الكود الموجود أسفل والصقيه.</li>
+  <li>اضغطي "حفظ".</li>
+</ol>
+
+<h2>💻 على الحاسوب:</h2>
+<ol>
+  <li>افتح Google Chrome أو Firefox.</li>
+  <li>ثبّت إضافة <b>Tampermonkey</b>.</li>
+  <li>من الإضافة، اضغطي "إضافة سكريبت جديد".</li>
+  <li>انسخي الكود التالي:</li>
+</ol>
+
+<pre><code>
+// ==UserScript==
+// @name         Ad Blocker Simple Script
+// @match        *://*/*
+// @run-at       document-start
+// ==/UserScript==
+document.addEventListener('DOMContentLoaded', function () {
+  const ads = document.querySelectorAll('[id^="ad"], .ads, .ad-banner');
+  ads.forEach(ad => ad.remove());
+});
+</code></pre>
+
+<p>بعد الحفظ، الإعلانات راح تختفي تلقائيًا من معظم المواقع 🌟</p>
+
+<a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a>
 <div style="display: flex; justify-content: space-between; align-items: center;">
   <button onclick="toggleDarkMode()">🌓 تبديل الوضع</button>
   <select onchange="changeLang(this)">
