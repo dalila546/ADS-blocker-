@@ -6,6 +6,19 @@
   <title>الرئيسية</title>
   <link rel='stylesheet' href='style.css'>
   <script src='script.js'></script>
+  <style>
+    .link-list a {
+      display: block;
+      margin: 10px 0;
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .link-list a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
@@ -24,18 +37,18 @@
 
 <hr>
 
-<!-- قائمة الروابط حسب الترتيب الجديد -->
-<nav style="line-height: 2;">
-  <a href='dns.html'>🌐 ما هو DNS؟</a> |
-  <!-- تم حذف سكريبت الحظر حسب رغبتك -->
-  <a href='faq.html'>❓ الأسئلة الشائعة</a> |
-  <a href='howto.html'>🛡️ كيف تحجب الإعلانات؟</a> |
-  <a href='apps-block.html'>📲 حجب الإعلانات من التطبيقات</a> |
+<!-- الروابط مرتبة عموديًا -->
+<div class="link-list" style="text-align: right; padding: 0 20px;">
+  <a href='dns.html'>🌐 ما هو DNS؟</a>
+  <a href='faq.html'>❓ الأسئلة الشائعة</a>
+  <a href='howto.html'>🛡️ كيف تحجب الإعلانات؟</a>
+  <a href='apps-block.html'>📲 حجب الإعلانات من التطبيقات</a>
   <a href='test.html'>🧪 اختبار الحجب</a>
-</nav>
+</div>
 
 <hr>
 
+<!-- الفوتر -->
 <footer style="text-align:center; margin-top: 40px;">
   <p>© جميع الحقوق محفوظة</p>
   <p>
