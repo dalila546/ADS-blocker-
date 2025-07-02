@@ -113,7 +113,12 @@
 
   function changeLang(select) {
     const lang = select.value;
-    window.location.href = lang + ".html";
+    if (lang === "ar") {
+      location.reload();
+    } else {
+      alert("عذرًا، هذه اللغة غير متوفرة حاليًا.");
+      select.value = "ar";
+    }
   }
 
   window.addEventListener('DOMContentLoaded', () => {
