@@ -51,7 +51,6 @@
       background-color: #8c6d52;
     }
 
-    /* الوضع الليلي */
     body.dark-mode {
       background-color: #121212;
       color: #f0f0f0;
@@ -65,11 +64,22 @@
       background-color: #1e1e1e;
       color: #ccc;
     }
+
+    /* زر المشاركة */
+    .share-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
 
-<!-- شريط اللغة والوضع الليلي -->
 <div style="display: flex; justify-content: space-between; align-items: center; padding:10px;">
   <button onclick="toggleDarkMode()">🌓 تبديل الوضع</button>
   <select onchange="changeLang(this)">
@@ -84,7 +94,6 @@
 
 <hr>
 
-<!-- روابط الصفحة -->
 <div style="text-align: right; padding: 0 20px;">
   <a href="dns.html">🌐 ما هو DNS؟</a>
   <a href="faq.html">❓ الأسئلة الشائعة</a>
@@ -93,9 +102,11 @@
   <a href="test.html">🧪 اختبار الحجب</a>
 </div>
 
-<hr>
+<!-- ✅ زر المشاركة -->
+<div style="text-align: center;">
+  <button class="share-btn" onclick="shareSite()">📤 شارك الموقع مع أصدقائك</button>
+</div>
 
-<!-- الفوتر -->
 <footer>
   <p>© جميع الحقوق محفوظة</p>
   <p>
@@ -104,7 +115,7 @@
   </p>
 </footer>
 
-<!-- ✅ سكريبت الوضع الليلي وتغيير اللغة -->
+<!-- ✅ سكريبت الوضع الليلي + تغيير اللغة + زر المشاركة -->
 <script>
   function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
@@ -118,6 +129,20 @@
     } else {
       alert("عذرًا، هذه اللغة غير متوفرة حاليًا.");
       select.value = "ar";
+    }
+  }
+
+  function shareSite() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'موقع حجب الإعلانات',
+        text: 'أنصحك بزيارة هذا الموقع لحجب الإعلانات المزعجة بسهولة:',
+        url: window.location.href
+      })
+      .then(() => console.log('✅ تمت المشاركة'))
+      .catch((error) => console.log('❌ فشل المشاركة:', error));
+    } else {
+      alert("المتصفح لا يدعم زر المشاركة 🙁");
     }
   }
 
